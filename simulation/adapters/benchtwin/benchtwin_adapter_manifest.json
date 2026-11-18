@@ -1,0 +1,23 @@
+{
+  "schema": "cellguard-adapter-manifest/v1",
+  "adapter_id": "benchtwin",
+  "status": "preserved_inactive",
+  "active_simulator": "wokwi",
+  "hal_interface": "../common/battery_hal_interface.py",
+  "safety_invariant": {
+    "monitor_only": true,
+    "balancing_supported": false,
+    "charging_supported": false,
+    "fet_switching_supported": false,
+    "external_bms_and_fuse_required": true
+  },
+  "benchtwin_artifacts": {
+    "workspace": "../../benchtwin/cellguard.btw",
+    "manifest": "../../benchtwin/cellguard-benchtwin.json",
+    "netlist": "../../benchtwin/cellguard.net",
+    "bom": "../../benchtwin/BOM.csv",
+    "enclosure_stl": "../../benchtwin/cellguard_enclosure.stl",
+    "notes": "../../benchtwin/BENCHTWIN-SIMULATION-NOTES.md"
+  },
+  "firmware_entry": "../../firmware/src/main.cpp"
+}

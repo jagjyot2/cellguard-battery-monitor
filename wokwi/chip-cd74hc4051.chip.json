@@ -1,0 +1,20 @@
+{
+  "name": "chip-cd74hc4051",
+  "author": "CellGuard (Jagjyot Singh)",
+  "pins": [
+    "VCC",
+    "GND",
+    "S0",
+    "S1",
+    "S2",
+    "COM_OUT",
+    "CH0",
+    "CH1",
+    "CH2",
+    "CH3",
+    "CH4",
+    "CH5",
+    "CH6_AGND",
+    "CH7_VREF"
+  ]
+}

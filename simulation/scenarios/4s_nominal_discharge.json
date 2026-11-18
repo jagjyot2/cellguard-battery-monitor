@@ -1,0 +1,53 @@
+{
+  "schema": "cellguard-scenario/v1",
+  "scenario_id": "4s_nominal_discharge",
+  "title": "4S 21700 Nominal 10A Constant-Current Discharge",
+  "safety_invariant": {
+    "monitor_only": true,
+    "external_bms_present": true,
+    "inline_fuse_present": true
+  },
+  "pack_config": {
+    "series_cells": 4,
+    "nominal_capacity_mah": 5000.0,
+    "r_shunt_ohm": 0.001,
+    "max_expected_a": 60.0,
+    "r_dc_nominal_cell_mohm": 22.0
+  },
+  "expected_outcomes": {
+    "ina226_alert": false,
+    "thermal_runaway_alarm": false,
+    "overcurrent_alarm": false,
+    "max_cell_delta_mv": 35.0
+  },
+  "keyframes": [
+    {
+      "t_s": 0.0,
+      "current_a": 0.0,
+      "cell_voltages_v": [4.180, 4.178, 4.182, 4.179],
+      "ntc_temps_c": [25.0, 25.2, 24.8, 24.5],
+      "notes": "Rest before load"
+    },
+    {
+      "t_s": 10.0,
+      "current_a": 10.0,
+      "cell_voltages_v": [3.960, 3.955, 3.962, 3.957],
+      "ntc_temps_c": [26.1, 26.3, 25.6, 25.0],
+      "notes": "2C nominal discharge step (R_dc ~ 22 mOhm/cell)"
+    },
+    {
+      "t_s": 300.0,
+      "current_a": 10.0,
+      "cell_voltages_v": [3.810, 3.802, 3.814, 3.805],
+      "ntc_temps_c": [29.4, 29.8, 28.2, 26.8],
+      "notes": "Mid-discharge plateau"
+    },
+    {
+      "t_s": 600.0,
+      "current_a": 0.0,
+      "cell_voltages_v": [3.890, 3.884, 3.893, 3.886],
+      "ntc_temps_c": [30.1, 30.4, 28.9, 27.2],
+      "notes": "Rest recovery for OCV-SoC fusion"
+    }
+  ]
+}

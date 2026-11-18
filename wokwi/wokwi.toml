@@ -1,0 +1,12 @@
+[wokwi]
+version = 1
+firmware = "../firmware/.pio/build/esp32dev/firmware.bin"
+elf = "../firmware/.pio/build/esp32dev/firmware.elf"
+
+[[chip]]
+name = "chip-ina226"
+binary = "chip-ina226.chip.wasm"
+
+[[chip]]
+name = "chip-cd74hc4051"
+binary = "chip-cd74hc4051.chip.wasm"

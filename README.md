@@ -33,11 +33,13 @@
 ```text
 06-CELLGUARD/
 ├── firmware/                  # PlatformIO ESP32 C++ firmware (INA226, NTC, MUX, Analytics, NVS CLI)
+├── simulation/                # Simulator-independent HAL, Wokwi/BenchTwin adapters, scenarios & support matrix
+├── wokwi/                     # Active Wokwi diagram.json, wokwi.toml, & custom I2C/MUX chip stubs
 ├── backend/                   # FastAPI REST API, SQLite DB, dataset replay & built dashboard assets
 ├── dashboard/                 # React + TypeScript + Vite dark-mode dashboard source
 ├── hardware/                  # KiCad 8 schematic, PCB, netlist, BOM, Gerbers & Safety Guide
-├── benchtwin/                 # BenchTwin .btw workspace, JSON circuit, netlist, BOM & 3D STL enclosure
-├── tests/                     # Pytest verification suite (INA226, SoC/SoH/R_dc, thermal, API/CLI)
+├── benchtwin/                 # Preserved BenchTwin .btw workspace, JSON circuit, netlist, BOM & 3D STL enclosure
+├── tests/                     # Pytest verification suite (INA226, SoC/SoH/R_dc, thermal, API/CLI, Wokwi/HAL)
 ├── docs/ARCHITECTURE.md       # Hardware/firmware math & system design specification
 ├── calibration_cli.py         # Two-point shunt & voltage divider calibration utility
 └── ROADMAP.md                 # Engineering milestones & future roadmap
@@ -61,11 +63,15 @@ npm install
 npm run build
 ```
 
-### 2. Build ESP32 Firmware (PlatformIO)
+### 2. Build ESP32 Firmware & Run Wokwi Simulation
 ```bash
 cd firmware
 pio run
 ```
+`wokwi/wokwi.toml` points directly to `firmware/.pio/build/esp32dev/firmware.bin` and `firmware.elf`.
+- Open `wokwi/` in VS Code with the **Wokwi Simulator** extension, or run headless with `WOKWI_CLI_TOKEN` set (`wokwi-cli wokwi --timeout 10000`).
+- See [`wokwi/README.md`](./wokwi/README.md) and [`simulation/documentation/COMPONENT-SUPPORT-MATRIX.md`](./simulation/documentation/COMPONENT-SUPPORT-MATRIX.md) for natively supported Wokwi parts (`board-esp32-devkit-c-v4`, `wokwi-ntc-temperature-sensor`, `wokwi-potentiometer`, `wokwi-led`) vs. custom chips (`chip-ina226`, `chip-cd74hc4051`).
+- **BenchTwin Reactivation**: The original `benchtwin/` digital-twin package is preserved intact; see [`simulation/adapters/benchtwin/README.md`](./simulation/adapters/benchtwin/README.md) to reactivate BenchTwin in the future.
 
 ### 3. Run Calibration CLI Utility
 ```bash
@@ -84,6 +90,9 @@ pytest -v
 - [Hardware Safety & Conservative Bench Test Procedure](./hardware/SAFETY-AND-TEST-PROCEDURE.md)
 - [PCB Assembly & Calibration Guide](./hardware/ASSEMBLY-GUIDE.md)
 - [System Architecture & Analytics Math](./docs/ARCHITECTURE.md)
+- [Wokwi Simulation Setup](./wokwi/README.md)
+- [Simulation Component Support Matrix](./simulation/documentation/COMPONENT-SUPPORT-MATRIX.md)
+- [BenchTwin Adapter & Reactivation Guide](./simulation/adapters/benchtwin/README.md)
 - [BenchTwin Simulation Notes](./benchtwin/BENCHTWIN-SIMULATION-NOTES.md)
 - [Development Roadmap](./ROADMAP.md)
 

@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "author": "Jagjyot Singh (CellGuard)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "chip-ina226",
+      "id": "ina226",
+      "top": -140,
+      "left": 240,
+      "attrs": {
+        "busVoltageV": "15.2",
+        "packCurrentA": "10.0"
+      }
+    },
+    {
+      "type": "chip-cd74hc4051",
+      "id": "mux",
+      "top": 40,
+      "left": -240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc0",
+      "top": -160,
+      "left": -220,
+      "attrs": { "temperature": "25" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc1",
+      "top": -80,
+      "left": -220,
+      "attrs": { "temperature": "25" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc2",
+      "top": 0,
+      "left": -340,
+      "attrs": { "temperature": "25" }
+    },
+    {
+      "type": "wokwi-ntc-temperature-sensor",
+      "id": "ntc3",
+      "top": 80,
+      "left": -340,
+      "attrs": { "temperature": "24" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_cell1",
+      "top": 180,
+      "left": -240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_pack_bus",
+      "top": 180,
+      "left": -140,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_alarm",
+      "top": 20,
+      "left": 220,
+      "attrs": { "color": "red", "label": "ALARM" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_status",
+      "top": 80,
+      "left": 220,
+      "attrs": { "color": "green", "label": "STATUS" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer_alert",
+      "top": 140,
+      "left": 220,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_cal",
+      "top": 210,
+      "left": 220,
+      "attrs": { "color": "blue", "label": "CAL/MUTE" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "ina226:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ina226:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "esp:21", "ina226:SDA", "green", [ "h0" ] ],
+    [ "esp:22", "ina226:SCL", "yellow", [ "h0" ] ],
+    [ "esp:16", "ina226:ALERT", "orange", [ "h0" ] ],
+
+    [ "mux:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "mux:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "esp:VP", "mux:COM_OUT", "purple", [ "h0" ] ],
+    [ "esp:25", "mux:S0", "blue", [ "h0" ] ],
+    [ "esp:26", "mux:S1", "cyan", [ "h0" ] ],
+    [ "esp:27", "mux:S2", "teal", [ "h0" ] ],
+
+    [ "pot_cell1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot_cell1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot_cell1:SIG", "mux:CH0", "violet", [ "v0" ] ],
+
+    [ "pot_pack_bus:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "pot_pack_bus:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "pot_pack_bus:SIG", "mux:CH1", "violet", [ "v0" ] ],
+
+    [ "ntc0:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ntc0:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ntc0:OUT", "esp:VN", "brown", [ "h0" ] ],
+
+    [ "ntc1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ntc1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ntc1:OUT", "esp:34", "brown", [ "h0" ] ],
+
+    [ "ntc2:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ntc2:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ntc2:OUT", "esp:35", "brown", [ "h0" ] ],
+
+    [ "ntc3:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "ntc3:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "ntc3:OUT", "esp:32", "brown", [ "h0" ] ],
+
+    [ "esp:17", "led_alarm:A", "red", [ "h0" ] ],
+    [ "led_alarm:C", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "esp:18", "led_status:A", "green", [ "h0" ] ],
+    [ "led_status:C", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "esp:19", "buzzer_alert:1", "orange", [ "h0" ] ],
+    [ "buzzer_alert:2", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "esp:4", "btn_cal:1.l", "blue", [ "h0" ] ],
+    [ "btn_cal:2.l", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

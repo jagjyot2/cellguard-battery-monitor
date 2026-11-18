@@ -67,4 +67,22 @@ Four `10 kΩ @ 25 °C` NTC thermistors in `10.0 kΩ` precision high-side divider
 ---
 
 ## 4. Firmware–Backend Parity
-`backend/analytics.py` mirrors the exact C++ constants, OCV LUT, INA226 register scaling, Steinhart-Hart parameters, OLS slope window, `R_dc` step detector, and alarm rules engine, validated across 18 automated unit and integration tests.
+`backend/analytics.py` mirrors the exact C++ constants, OCV LUT, INA226 register scaling, Steinhart-Hart parameters, OLS slope window, `R_dc` step detector, and alarm rules engine, validated across automated unit and integration tests.
+
+---
+
+## 5. Simulator-Independent Hardware Architecture (Wokwi Active, BenchTwin Preserved)
+
+CellGuard decouples firmware/analytics verification from any single simulator via the canonical HAL in `simulation/adapters/common/`:
+- `battery_hal_interface.h` (C++) and `battery_hal_interface.py` (Python `BatteryHALInterface`) expose read-only telemetry (`INA226`, 4x `NTC`, 1S–6S cell tap `ADC`, and non-invasive alarm outputs) while enforcing `CELLGUARD_MONITOR_ONLY = 1`.
+
+### 5.1 Active Simulator: Wokwi (`wokwi/`)
+- `wokwi/wokwi.toml` binds directly to `../firmware/.pio/build/esp32dev/firmware.bin` and `firmware.elf`.
+- **Natively Supported Components**: `board-esp32-devkit-c-v4`, `wokwi-ntc-temperature-sensor` (`GPIO39/VN`, `GPIO34`, `GPIO35`, `GPIO32`), `wokwi-potentiometer` (cell-tap/bus dividers), `wokwi-led` (`GPIO17`, `GPIO18`), `wokwi-buzzer` (`GPIO19`), `wokwi-pushbutton` (`GPIO4`).
+- **Unsupported Native ICs (Custom Chips + Documented Mocks)**:
+  - `INA226` (and `INA219`) are not natively supported in Wokwi -> implemented via custom I2C chip `wokwi/chip-ina226.chip.json` + `.c` (`GPIO21` SDA, `GPIO22` SCL, `GPIO16` ALERT) and `WokwiCellGuardAdapter`.
+  - `CD74HC4051` 8:1 MUX is not natively supported -> implemented via `wokwi/chip-cd74hc4051.chip.json` + `.c` (`GPIO25/26/27` -> `GPIO36/VP`) and software mock in `WokwiCellGuardAdapter`.
+  - Full details in `simulation/documentation/COMPONENT-SUPPORT-MATRIX.md`.
+
+### 5.2 Future BenchTwin Reactivation
+All BenchTwin artifacts remain intact under `benchtwin/` (`cellguard.btw`, `cellguard-benchtwin.json`, `cellguard.net`, `BOM.csv`, `cellguard_enclosure.stl`). To reactivate BenchTwin, follow `simulation/adapters/benchtwin/README.md` and `simulation/adapters/benchtwin/benchtwin_adapter_manifest.json`.
