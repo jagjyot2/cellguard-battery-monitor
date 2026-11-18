@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+
+# SQLite runtime databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+
+# Node / Dashboard build caches (built static assets live in backend/static/)
+dashboard/node_modules/
+dashboard/dist/
+dashboard/.vite/
+*.tsbuildinfo
+
+# PlatformIO / Firmware build artifacts
+firmware/.pio/
+firmware/.pioenvs/
+firmware/.piolibdeps/
+
+# Environment & local secrets
+.env
+.env.local
+
+# KiCad temporary/backup files
+hardware/*-backups/
+hardware/*.kicad_prl
+hardware/*.lck
+hardware/*.bak
+hardware/_autosave-*
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
