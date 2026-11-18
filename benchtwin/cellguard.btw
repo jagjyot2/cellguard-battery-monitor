@@ -1,0 +1,1221 @@
+{
+  "format": "benchtwin-workspace",
+  "format_version": "1.0",
+  "circuit": {
+    "schema": "benchtwin/v1",
+    "project": {
+      "name": "CellGuard 21700 Pack Telemetry & Health Monitor",
+      "slug": "cellguard-battery-monitor",
+      "version": "1.0.0",
+      "safety_classification": "NON_INVASIVE_MONITOR_ONLY",
+      "external_bms_and_fuse_required": true,
+      "features_disabled": [
+        "cell_balancing",
+        "battery_charging",
+        "high_current_fet_switching"
+      ]
+    },
+    "board": {
+      "mcu": "ESP32-WROOM-32E",
+      "dimensions_mm": [
+        90.0,
+        62.0,
+        1.6
+      ],
+      "enclosure_stl": "cellguard_enclosure.stl",
+      "firmware_entry": "../firmware/src/main.cpp",
+      "uart_baud": 115200
+    },
+    "components": [
+      {
+        "id": "U1",
+        "part": "ESP32-DevKitC-32E",
+        "mpn": "ESP32-WROOM-32E-N4",
+        "footprint": "Module:ESP32-WROOM-32E",
+        "position_mm": [
+          68.0,
+          31.0,
+          0.0
+        ],
+        "description": "WiFi/BLE Dual-Core Telemetry MCU (ADC1 + I2C + NVS)"
+      },
+      {
+        "id": "U2",
+        "part": "AMS1117-3.3",
+        "mpn": "AMS1117-3.3",
+        "footprint": "Package_TO_SOT_SMD:SOT-223-3_TabPin2",
+        "position_mm": [
+          79.0,
+          52.0,
+          0.0
+        ],
+        "description": "5V to 3.3V 800mA LDO Regulator (Isolated from cell taps)"
+      },
+      {
+        "id": "U3",
+        "part": "INA226AIDGSR",
+        "mpn": "INA226AIDGSR",
+        "footprint": "Package_SO:VSSOP-10_3x3mm_P0.5mm",
+        "position_mm": [
+          36.0,
+          21.0,
+          0.0
+        ],
+        "description": "16-bit Precision I2C Current/Bus Voltage Monitor (0x40)"
+      },
+      {
+        "id": "U4",
+        "part": "CD74HC4051M",
+        "mpn": "CD74HC4051M96",
+        "footprint": "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm",
+        "position_mm": [
+          42.0,
+          41.0,
+          0.0
+        ],
+        "description": "8:1 Analog Multiplexer for B1-B6 taps + GND/VREF cal"
+      },
+      {
+        "id": "U5",
+        "part": "MCP6001T-I/OT",
+        "mpn": "MCP6001T-I/OT",
+        "footprint": "Package_TO_SOT_SMD:SOT-23-5",
+        "position_mm": [
+          52.0,
+          35.0,
+          0.0
+        ],
+        "description": "Unity-gain SAR ADC driver buffer for MUX output"
+      },
+      {
+        "id": "U6",
+        "part": "LM4040AIM3-2.0",
+        "mpn": "LM4040AIM3-2.0/NOPB",
+        "footprint": "Package_TO_SOT_SMD:SOT-23",
+        "position_mm": [
+          52.0,
+          46.0,
+          0.0
+        ],
+        "description": "2.048V 0.1% Precision Shunt Reference on MUX CH7"
+      },
+      {
+        "id": "R_SHUNT",
+        "part": "1.0mOhm 5W Kelvin",
+        "mpn": "CSS4J-4026R-1L00F",
+        "footprint": "Resistor_SMD:R_Shunt_4Wire_CSS4J_4026",
+        "position_mm": [
+          20.0,
+          14.0,
+          0.0
+        ],
+        "description": "4-Wire Kelvin Precision Shunt (1.0 mOhm, 1%, 5W)"
+      },
+      {
+        "id": "J1",
+        "part": "PACK_POS_IN (XT60)",
+        "mpn": "XT60PW-M",
+        "footprint": "Connector_AMASS:AMASS_XT60-M_1x02_P7.2mm",
+        "position_mm": [
+          8.0,
+          14.0,
+          0.0
+        ],
+        "description": "Pack+ Input downstream of External Commercial BMS + Inline Main Fuse"
+      },
+      {
+        "id": "J2",
+        "part": "LOAD_POS_OUT (XT60)",
+        "mpn": "XT60PW-F",
+        "footprint": "Connector_AMASS:AMASS_XT60-F_1x02_P7.2mm",
+        "position_mm": [
+          32.0,
+          8.0,
+          0.0
+        ],
+        "description": "Load+ Output post-shunt"
+      },
+      {
+        "id": "J3",
+        "part": "CELL_TAPS_1S-6S",
+        "mpn": "B7B-XH-A(LF)(SN)",
+        "footprint": "Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical",
+        "position_mm": [
+          9.0,
+          42.0,
+          0.0
+        ],
+        "description": "7-pin Cell Group Sense Tap Header (B0/GND, B1..B6)"
+      },
+      {
+        "id": "J4",
+        "part": "USB-C_UART_5V",
+        "mpn": "TYPE-C-31-M-12",
+        "footprint": "Connector_USB:USB_C_Receptacle_16Pin",
+        "position_mm": [
+          85.0,
+          31.0,
+          0.0
+        ],
+        "description": "Isolated Logic 5V Power & UART Telemetry/Calibration Port"
+      },
+      {
+        "id": "J6",
+        "part": "NTC_ARRAY_4CH",
+        "mpn": "B8B-XH-A(LF)(SN)",
+        "footprint": "Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical",
+        "position_mm": [
+          62.0,
+          56.0,
+          0.0
+        ],
+        "description": "4-Channel 10k NTC Thermistor Header (4x signal + 4x GND)"
+      },
+      {
+        "id": "SW1",
+        "part": "CAL_MUTE_BTN",
+        "mpn": "TL3342F160QG",
+        "footprint": "Button_Switch_SMD:SW_SPST_TL3342",
+        "position_mm": [
+          64.0,
+          10.0,
+          0.0
+        ],
+        "description": "Pushbutton for local piezo mute / calibration ack"
+      },
+      {
+        "id": "Q1",
+        "part": "2N7002",
+        "mpn": "2N7002K-T1-GE3",
+        "footprint": "Package_TO_SOT_SMD:SOT-23",
+        "position_mm": [
+          74.0,
+          10.0,
+          0.0
+        ],
+        "description": "Low-current piezo buzzer signal driver (NOT a pack FET)"
+      },
+      {
+        "id": "LS1",
+        "part": "Piezo_Alert_3V3",
+        "mpn": "MLT-8530",
+        "footprint": "Buzzer_Beeper:Buzzer_12x9.5RM7.6",
+        "position_mm": [
+          82.0,
+          10.0,
+          0.0
+        ],
+        "description": "Audible critical alarm transducer"
+      },
+      {
+        "id": "F1",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          34.7,
+          0.0
+        ],
+        "description": "Sense tap B1 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D1",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          34.7,
+          0.0
+        ],
+        "description": "Sense tap B1 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F2",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          37.9,
+          0.0
+        ],
+        "description": "Sense tap B2 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D2",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          37.9,
+          0.0
+        ],
+        "description": "Sense tap B2 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F3",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          41.1,
+          0.0
+        ],
+        "description": "Sense tap B3 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D3",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          41.1,
+          0.0
+        ],
+        "description": "Sense tap B3 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F4",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          44.3,
+          0.0
+        ],
+        "description": "Sense tap B4 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D4",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          44.3,
+          0.0
+        ],
+        "description": "Sense tap B4 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F5",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          47.5,
+          0.0
+        ],
+        "description": "Sense tap B5 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D5",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          47.5,
+          0.0
+        ],
+        "description": "Sense tap B5 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F6",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          16.5,
+          50.7,
+          0.0
+        ],
+        "description": "Sense tap B6 resettable PPTC polyfuse"
+      },
+      {
+        "id": "D6",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          21.5,
+          50.7,
+          0.0
+        ],
+        "description": "Sense tap B6 28V TVS surge clamp to GND"
+      },
+      {
+        "id": "F7",
+        "part": "100mA 60V PPTC",
+        "mpn": "0805L010YR",
+        "footprint": "Fuse:Fuse_0805_2012Metric",
+        "position_mm": [
+          29.0,
+          18.0,
+          0.0
+        ],
+        "description": "INA226 VBUS sense resettable PPTC polyfuse"
+      },
+      {
+        "id": "D7",
+        "part": "SMAJ28A",
+        "mpn": "SMAJ28A",
+        "footprint": "Diode_SMD:D_SMA",
+        "position_mm": [
+          32.0,
+          14.0,
+          0.0
+        ],
+        "description": "INA226 VBUS 28V TVS clamp to GND"
+      },
+      {
+        "id": "D8",
+        "part": "BAT54S",
+        "mpn": "BAT54S-7-F",
+        "footprint": "Package_TO_SOT_SMD:SOT-23",
+        "position_mm": [
+          34.0,
+          33.0,
+          0.0
+        ],
+        "description": "Dual Schottky rail clamp for DIV_B1 / DIV_B2"
+      },
+      {
+        "id": "D9",
+        "part": "BAT54S",
+        "mpn": "BAT54S-7-F",
+        "footprint": "Package_TO_SOT_SMD:SOT-23",
+        "position_mm": [
+          34.0,
+          38.0,
+          0.0
+        ],
+        "description": "Dual Schottky rail clamp for DIV_B3 / DIV_B4"
+      },
+      {
+        "id": "D10",
+        "part": "BAT54S",
+        "mpn": "BAT54S-7-F",
+        "footprint": "Package_TO_SOT_SMD:SOT-23",
+        "position_mm": [
+          34.0,
+          43.0,
+          0.0
+        ],
+        "description": "Dual Schottky rail clamp for DIV_B5 / DIV_B6"
+      },
+      {
+        "id": "R1",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          34.7,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B1"
+      },
+      {
+        "id": "R2",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          34.7,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B1"
+      },
+      {
+        "id": "R3",
+        "part": "300k 0.1%",
+        "mpn": "ERA-6AEB304V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          37.900000000000006,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B2"
+      },
+      {
+        "id": "R4",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          37.900000000000006,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B2"
+      },
+      {
+        "id": "R5",
+        "part": "499k 0.1%",
+        "mpn": "ERA-6AEB4993V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          41.1,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B3"
+      },
+      {
+        "id": "R6",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          41.1,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B3"
+      },
+      {
+        "id": "R7",
+        "part": "680k 0.1%",
+        "mpn": "ERA-6AEB684V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          44.300000000000004,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B4"
+      },
+      {
+        "id": "R8",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          44.300000000000004,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B4"
+      },
+      {
+        "id": "R9",
+        "part": "820k 0.1%",
+        "mpn": "ERA-6AEB824V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          47.5,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B5"
+      },
+      {
+        "id": "R10",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          47.5,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B5"
+      },
+      {
+        "id": "R11",
+        "part": "1.00M 0.1%",
+        "mpn": "ERA-6AEB105V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          26.5,
+          50.7,
+          0.0
+        ],
+        "description": "High-Z upper divider resistor for cell tap B6"
+      },
+      {
+        "id": "R12",
+        "part": "100k 0.1%",
+        "mpn": "ERA-6AEB104V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          30.5,
+          50.7,
+          0.0
+        ],
+        "description": "Lower divider resistor to AGND for cell tap B6"
+      },
+      {
+        "id": "R13",
+        "part": "10R 1%",
+        "mpn": "RC0805FR-0710RL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          27.0,
+          21.0,
+          0.0
+        ],
+        "description": "Kelvin positive RC filter resistor"
+      },
+      {
+        "id": "R14",
+        "part": "10R 1%",
+        "mpn": "RC0805FR-0710RL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          27.0,
+          23.5,
+          0.0
+        ],
+        "description": "Kelvin negative RC filter resistor"
+      },
+      {
+        "id": "R15",
+        "part": "4.7k 1%",
+        "mpn": "RC0805FR-074K7L",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          45.0,
+          20.0,
+          0.0
+        ],
+        "description": "I2C SDA pull-up"
+      },
+      {
+        "id": "R16",
+        "part": "4.7k 1%",
+        "mpn": "RC0805FR-074K7L",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          45.0,
+          22.5,
+          0.0
+        ],
+        "description": "I2C SCL pull-up"
+      },
+      {
+        "id": "R17",
+        "part": "10k 1%",
+        "mpn": "RC0805FR-0710KL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          45.0,
+          25.0,
+          0.0
+        ],
+        "description": "INA226 open-drain ALERT pull-up"
+      },
+      {
+        "id": "R18",
+        "part": "10k 0.1%",
+        "mpn": "ERA-6AEB103V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          56.0,
+          49.0,
+          0.0
+        ],
+        "description": "NTC0 precision high-side pullup"
+      },
+      {
+        "id": "R19",
+        "part": "10k 0.1%",
+        "mpn": "ERA-6AEB103V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          59.5,
+          49.0,
+          0.0
+        ],
+        "description": "NTC1 precision high-side pullup"
+      },
+      {
+        "id": "R20",
+        "part": "10k 0.1%",
+        "mpn": "ERA-6AEB103V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          63.0,
+          49.0,
+          0.0
+        ],
+        "description": "NTC2 precision high-side pullup"
+      },
+      {
+        "id": "R21",
+        "part": "10k 0.1%",
+        "mpn": "ERA-6AEB103V",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          66.5,
+          49.0,
+          0.0
+        ],
+        "description": "NTC3 precision high-side pullup"
+      },
+      {
+        "id": "R22",
+        "part": "1.0k 1%",
+        "mpn": "RC0805FR-071KL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          52.0,
+          49.0,
+          0.0
+        ],
+        "description": "LM4040 2.048V bias resistor"
+      },
+      {
+        "id": "R23",
+        "part": "1.0k 1%",
+        "mpn": "RC0805FR-071KL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          74.0,
+          17.0,
+          0.0
+        ],
+        "description": "Alarm LED current limit"
+      },
+      {
+        "id": "R24",
+        "part": "1.0k 1%",
+        "mpn": "RC0805FR-071KL",
+        "footprint": "Resistor_SMD:R_0805_2012Metric",
+        "position_mm": [
+          78.0,
+          17.0,
+          0.0
+        ],
+        "description": "Status LED current limit"
+      },
+      {
+        "id": "C1",
+        "part": "100nF 50V C0G",
+        "mpn": "C0805C104J5GAC7800",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          31.0,
+          22.0,
+          0.0
+        ],
+        "description": "Kelvin shunt differential RC filter cap"
+      },
+      {
+        "id": "C2",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          40.0,
+          17.0,
+          0.0
+        ],
+        "description": "INA226 decoupling cap"
+      },
+      {
+        "id": "C3",
+        "part": "10uF 16V X5R",
+        "mpn": "CL21A106KOQNNNE",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          74.0,
+          52.0,
+          0.0
+        ],
+        "description": "LDO input bulk cap"
+      },
+      {
+        "id": "C4",
+        "part": "22uF 10V X5R",
+        "mpn": "CL21A226MPQNNNE",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          84.0,
+          52.0,
+          0.0
+        ],
+        "description": "LDO output bulk cap"
+      },
+      {
+        "id": "C5",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          46.0,
+          41.0,
+          0.0
+        ],
+        "description": "MUX CD74HC4051 decoupling"
+      },
+      {
+        "id": "C6",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          55.0,
+          35.0,
+          0.0
+        ],
+        "description": "MCP6001 buffer decoupling"
+      },
+      {
+        "id": "C7",
+        "part": "100nF 50V C0G",
+        "mpn": "C0805C104J5GAC7800",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          34.0,
+          48.0,
+          0.0
+        ],
+        "description": "Tap B1 RC anti-aliasing cap"
+      },
+      {
+        "id": "C8",
+        "part": "100nF 50V C0G",
+        "mpn": "C0805C104J5GAC7800",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          34.0,
+          50.5,
+          0.0
+        ],
+        "description": "Tap B4 RC anti-aliasing cap"
+      },
+      {
+        "id": "C9",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          56.0,
+          52.0,
+          0.0
+        ],
+        "description": "NTC0 ADC noise filter"
+      },
+      {
+        "id": "C10",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          59.5,
+          52.0,
+          0.0
+        ],
+        "description": "NTC1 ADC noise filter"
+      },
+      {
+        "id": "C11",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          63.0,
+          52.0,
+          0.0
+        ],
+        "description": "NTC2 ADC noise filter"
+      },
+      {
+        "id": "C12",
+        "part": "100nF 50V X7R",
+        "mpn": "CL21B104KBCNNNC",
+        "footprint": "Capacitor_SMD:C_0805_2012Metric",
+        "position_mm": [
+          66.5,
+          52.0,
+          0.0
+        ],
+        "description": "NTC3 ADC noise filter"
+      },
+      {
+        "id": "D11",
+        "part": "LED_RED_ALARM",
+        "mpn": "APT2012EC",
+        "footprint": "LED_SMD:LED_0805_2012Metric",
+        "position_mm": [
+          74.0,
+          20.5,
+          0.0
+        ],
+        "description": "Hardware Alarm Indicator LED"
+      },
+      {
+        "id": "D12",
+        "part": "LED_CYAN_STATUS",
+        "mpn": "APT2012QBC/D",
+        "footprint": "LED_SMD:LED_0805_2012Metric",
+        "position_mm": [
+          78.0,
+          20.5,
+          0.0
+        ],
+        "description": "Heartbeat Telemetry Status LED"
+      }
+    ],
+    "wiring_nets": {
+      "GND": [
+        "U1.GND",
+        "U2.GND",
+        "U3.1",
+        "U3.2",
+        "U3.7",
+        "U4.6",
+        "U4.7",
+        "U4.8",
+        "U5.2",
+        "U6.2",
+        "J1.2",
+        "J2.2",
+        "J3.1",
+        "J4.A1",
+        "J6.2",
+        "J6.4",
+        "J6.6",
+        "J6.8",
+        "SW1.2",
+        "Q1.2",
+        "D1.A",
+        "D2.A",
+        "D3.A",
+        "D4.A",
+        "D5.A",
+        "D6.A",
+        "D7.A",
+        "D8.1",
+        "D9.1",
+        "D10.1",
+        "C2.2",
+        "C3.2",
+        "C4.2",
+        "C5.2",
+        "C6.2",
+        "C9.2",
+        "C10.2",
+        "C11.2",
+        "C12.2",
+        "D11.K",
+        "D12.K"
+      ],
+      "3V3": [
+        "U1.3V3",
+        "U2.VOUT",
+        "U2.TAB",
+        "U3.6",
+        "U4.16",
+        "U5.5",
+        "LS1.1",
+        "D8.2",
+        "D9.2",
+        "D10.2",
+        "R15.1",
+        "R16.1",
+        "R17.1",
+        "R18.1",
+        "R19.1",
+        "R20.1",
+        "R21.1",
+        "R22.1",
+        "C2.1",
+        "C4.1",
+        "C5.1",
+        "C6.1"
+      ],
+      "MUX_OUT": [
+        "U1.GPIO36",
+        "U5.1",
+        "U5.4"
+      ],
+      "NTC0": [
+        "U1.GPIO39",
+        "J6.1",
+        "R18.2",
+        "C9.1"
+      ],
+      "NTC1": [
+        "U1.GPIO34",
+        "J6.3",
+        "R19.2",
+        "C10.1"
+      ],
+      "NTC2": [
+        "U1.GPIO35",
+        "J6.5",
+        "R20.2",
+        "C11.1"
+      ],
+      "NTC3": [
+        "U1.GPIO32",
+        "J6.7",
+        "R21.2",
+        "C12.1"
+      ],
+      "I2C_SDA": [
+        "U1.GPIO21",
+        "U3.4",
+        "R15.2"
+      ],
+      "I2C_SCL": [
+        "U1.GPIO22",
+        "U3.5",
+        "R16.2"
+      ],
+      "INA_ALERT": [
+        "U1.GPIO16",
+        "U3.3",
+        "R17.2"
+      ],
+      "MUX_S0": [
+        "U1.GPIO25",
+        "U4.11"
+      ],
+      "MUX_S1": [
+        "U1.GPIO26",
+        "U4.10"
+      ],
+      "MUX_S2": [
+        "U1.GPIO27",
+        "U4.9"
+      ],
+      "LED_ALARM": [
+        "U1.GPIO17",
+        "R23.1"
+      ],
+      "LED_STAT": [
+        "U1.GPIO18",
+        "R24.1"
+      ],
+      "VUSB_5V": [
+        "U2.VIN",
+        "J4.A4",
+        "C3.1"
+      ],
+      "VBUS_SENSE": [
+        "U3.8",
+        "F7.2",
+        "D7.K"
+      ],
+      "SHUNT_N_FILT": [
+        "U3.9",
+        "R14.2",
+        "C1.2"
+      ],
+      "SHUNT_P_FILT": [
+        "U3.10",
+        "R13.2",
+        "C1.1"
+      ],
+      "DIV_B5": [
+        "U4.1",
+        "D10.3",
+        "R9.2",
+        "R10.1"
+      ],
+      "DIV_B6": [
+        "U4.2",
+        "R11.2",
+        "R12.1"
+      ],
+      "MUX_COM": [
+        "U4.3",
+        "U5.3"
+      ],
+      "AGND": [
+        "U4.4",
+        "R2.2",
+        "R4.2",
+        "R6.2",
+        "R8.2",
+        "R10.2",
+        "R12.2",
+        "C7.2",
+        "C8.2"
+      ],
+      "VREF_2V048": [
+        "U4.5",
+        "U6.1",
+        "R22.2"
+      ],
+      "DIV_B4": [
+        "U4.12",
+        "R7.2",
+        "R8.1",
+        "C8.1"
+      ],
+      "DIV_B1": [
+        "U4.13",
+        "D8.3",
+        "R1.2",
+        "R2.1",
+        "C7.1"
+      ],
+      "DIV_B2": [
+        "U4.14",
+        "R3.2",
+        "R4.1"
+      ],
+      "DIV_B3": [
+        "U4.15",
+        "D9.3",
+        "R5.2",
+        "R6.1"
+      ],
+      "NC": [
+        "U6.3"
+      ],
+      "PACK_POS_IN": [
+        "R_SHUNT.1",
+        "J1.1"
+      ],
+      "LOAD_POS_OUT": [
+        "R_SHUNT.2",
+        "J2.1",
+        "F7.1"
+      ],
+      "SHUNT_SENSE_P": [
+        "R_SHUNT.3",
+        "R13.1"
+      ],
+      "SHUNT_SENSE_N": [
+        "R_SHUNT.4",
+        "R14.1"
+      ],
+      "TAP_B1_RAW": [
+        "J3.2",
+        "F1.1"
+      ],
+      "TAP_B2_RAW": [
+        "J3.3",
+        "F2.1"
+      ],
+      "TAP_B3_RAW": [
+        "J3.4",
+        "F3.1"
+      ],
+      "TAP_B4_RAW": [
+        "J3.5",
+        "F4.1"
+      ],
+      "TAP_B5_RAW": [
+        "J3.6",
+        "F5.1"
+      ],
+      "TAP_B6_RAW": [
+        "J3.7",
+        "F6.1"
+      ],
+      "GPIO4": [
+        "SW1.1"
+      ],
+      "GPIO19": [
+        "Q1.1"
+      ],
+      "BZ_N": [
+        "Q1.3",
+        "LS1.2"
+      ],
+      "TAP_B1_FUSED": [
+        "F1.2",
+        "D1.K",
+        "R1.1"
+      ],
+      "TAP_B2_FUSED": [
+        "F2.2",
+        "D2.K",
+        "R3.1"
+      ],
+      "TAP_B3_FUSED": [
+        "F3.2",
+        "D3.K",
+        "R5.1"
+      ],
+      "TAP_B4_FUSED": [
+        "F4.2",
+        "D4.K",
+        "R7.1"
+      ],
+      "TAP_B5_FUSED": [
+        "F5.2",
+        "D5.K",
+        "R9.1"
+      ],
+      "TAP_B6_FUSED": [
+        "F6.2",
+        "D6.K",
+        "R11.1"
+      ],
+      "LED_A_K": [
+        "R23.2",
+        "D11.A"
+      ],
+      "LED_S_K": [
+        "R24.2",
+        "D12.A"
+      ]
+    },
+    "simulation_profiles": [
+      {
+        "id": "4s_21700_bench_psu",
+        "series_cells": 4,
+        "bus_voltage_v": 16.8,
+        "shunt_mohm": 1.0,
+        "load_step_a": [
+          2.0,
+          18.0
+        ],
+        "ntc_temps_c": [
+          25.0,
+          26.5,
+          28.0,
+          24.5
+        ]
+      },
+      {
+        "id": "6s_21700_high_drain",
+        "series_cells": 6,
+        "bus_voltage_v": 25.2,
+        "shunt_mohm": 1.0,
+        "load_step_a": [
+          5.0,
+          25.0
+        ],
+        "ntc_temps_c": [
+          26.0,
+          27.0,
+          29.0,
+          25.0
+        ]
+      }
+    ]
+  },
+  "netlist": "(export (version \"E\")\n  (design\n    (source \"cellguard.kicad_sch\")\n    (date \"2026-11-18\")\n    (tool \"KiCad 8.0\")\n    (sheet (number \"1\") (name \"/\") (tstamps \"/\")\n      (title_block\n        (title \"CellGuard 21700 Pack Telemetry Monitor (1S-6S)\")\n        (company \"Jagjyot Engineering Portfolio\")\n        (rev \"1.0\")\n        (comment (number \"1\") (value \"SAFETY: Monitor-only instrument used alongside external commercial BMS + main fuse\")))))\n  (components\n    (comp (ref \"U1\") (value \"ESP32-DevKitC-32E\") (footprint \"Module:ESP32-WROOM-32E\") (property (name \"MPN\") (value \"ESP32-WROOM-32E-N4\")) (property (name \"Manufacturer\") (value \"Espressif\")))\n    (comp (ref \"U2\") (value \"AMS1117-3.3\") (footprint \"Package_TO_SOT_SMD:SOT-223-3_TabPin2\") (property (name \"MPN\") (value \"AMS1117-3.3\")) (property (name \"Manufacturer\") (value \"AMS\")))\n    (comp (ref \"U3\") (value \"INA226AIDGSR\") (footprint \"Package_SO:VSSOP-10_3x3mm_P0.5mm\") (property (name \"MPN\") (value \"INA226AIDGSR\")) (property (name \"Manufacturer\") (value \"Texas Instruments\")))\n    (comp (ref \"U4\") (value \"CD74HC4051M\") (footprint \"Package_SO:SOIC-16_3.9x9.9mm_P1.27mm\") (property (name \"MPN\") (value \"CD74HC4051M96\")) (property (name \"Manufacturer\") (value \"Texas Instruments\")))\n    (comp (ref \"U5\") (value \"MCP6001T-I/OT\") (footprint \"Package_TO_SOT_SMD:SOT-23-5\") (property (name \"MPN\") (value \"MCP6001T-I/OT\")) (property (name \"Manufacturer\") (value \"Microchip\")))\n    (comp (ref \"U6\") (value \"LM4040AIM3-2.0\") (footprint \"Package_TO_SOT_SMD:SOT-23\") (property (name \"MPN\") (value \"LM4040AIM3-2.0/NOPB\")) (property (name \"Manufacturer\") (value \"Texas Instruments\")))\n    (comp (ref \"R_SHUNT\") (value \"1.0mOhm 5W Kelvin\") (footprint \"Resistor_SMD:R_Shunt_4Wire_CSS4J_4026\") (property (name \"MPN\") (value \"CSS4J-4026R-1L00F\")) (property (name \"Manufacturer\") (value \"Bourns\")))\n    (comp (ref \"J1\") (value \"PACK_POS_IN (XT60)\") (footprint \"Connector_AMASS:AMASS_XT60-M_1x02_P7.2mm\") (property (name \"MPN\") (value \"XT60PW-M\")) (property (name \"Manufacturer\") (value \"Amass\")))\n    (comp (ref \"J2\") (value \"LOAD_POS_OUT (XT60)\") (footprint \"Connector_AMASS:AMASS_XT60-F_1x02_P7.2mm\") (property (name \"MPN\") (value \"XT60PW-F\")) (property (name \"Manufacturer\") (value \"Amass\")))\n    (comp (ref \"J3\") (value \"CELL_TAPS_1S-6S\") (footprint \"Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical\") (property (name \"MPN\") (value \"B7B-XH-A(LF)(SN)\")) (property (name \"Manufacturer\") (value \"JST\")))\n    (comp (ref \"J4\") (value \"USB-C_UART_5V\") (footprint \"Connector_USB:USB_C_Receptacle_16Pin\") (property (name \"MPN\") (value \"TYPE-C-31-M-12\")) (property (name \"Manufacturer\") (value \"Korean Hroparts\")))\n    (comp (ref \"J6\") (value \"NTC_ARRAY_4CH\") (footprint \"Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical\") (property (name \"MPN\") (value \"B8B-XH-A(LF)(SN)\")) (property (name \"Manufacturer\") (value \"JST\")))\n    (comp (ref \"SW1\") (value \"CAL_MUTE_BTN\") (footprint \"Button_Switch_SMD:SW_SPST_TL3342\") (property (name \"MPN\") (value \"TL3342F160QG\")) (property (name \"Manufacturer\") (value \"E-Switch\")))\n    (comp (ref \"Q1\") (value \"2N7002\") (footprint \"Package_TO_SOT_SMD:SOT-23\") (property (name \"MPN\") (value \"2N7002K-T1-GE3\")) (property (name \"Manufacturer\") (value \"Vishay\")))\n    (comp (ref \"LS1\") (value \"Piezo_Alert_3V3\") (footprint \"Buzzer_Beeper:Buzzer_12x9.5RM7.6\") (property (name \"MPN\") (value \"MLT-8530\")) (property (name \"Manufacturer\") (value \"Jiangsu Huaneng\")))\n    (comp (ref \"F1\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D1\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F2\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D2\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F3\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D3\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F4\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D4\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F5\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D5\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F6\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D6\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"F7\") (value \"100mA 60V PPTC\") (footprint \"Fuse:Fuse_0805_2012Metric\") (property (name \"MPN\") (value \"0805L010YR\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D7\") (value \"SMAJ28A\") (footprint \"Diode_SMD:D_SMA\") (property (name \"MPN\") (value \"SMAJ28A\")) (property (name \"Manufacturer\") (value \"Littelfuse\")))\n    (comp (ref \"D8\") (value \"BAT54S\") (footprint \"Package_TO_SOT_SMD:SOT-23\") (property (name \"MPN\") (value \"BAT54S-7-F\")) (property (name \"Manufacturer\") (value \"Diodes Inc.\")))\n    (comp (ref \"D9\") (value \"BAT54S\") (footprint \"Package_TO_SOT_SMD:SOT-23\") (property (name \"MPN\") (value \"BAT54S-7-F\")) (property (name \"Manufacturer\") (value \"Diodes Inc.\")))\n    (comp (ref \"D10\") (value \"BAT54S\") (footprint \"Package_TO_SOT_SMD:SOT-23\") (property (name \"MPN\") (value \"BAT54S-7-F\")) (property (name \"Manufacturer\") (value \"Diodes Inc.\")))\n    (comp (ref \"R1\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R2\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R3\") (value \"300k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB304V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R4\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R5\") (value \"499k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB4993V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R6\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R7\") (value \"680k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB684V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R8\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R9\") (value \"820k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB824V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R10\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R11\") (value \"1.00M 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB105V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R12\") (value \"100k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB104V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R13\") (value \"10R 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-0710RL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R14\") (value \"10R 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-0710RL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R15\") (value \"4.7k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-074K7L\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R16\") (value \"4.7k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-074K7L\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R17\") (value \"10k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-0710KL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R18\") (value \"10k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB103V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R19\") (value \"10k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB103V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R20\") (value \"10k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB103V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R21\") (value \"10k 0.1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"ERA-6AEB103V\")) (property (name \"Manufacturer\") (value \"Panasonic\")))\n    (comp (ref \"R22\") (value \"1.0k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-071KL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R23\") (value \"1.0k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-071KL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"R24\") (value \"1.0k 1%\") (footprint \"Resistor_SMD:R_0805_2012Metric\") (property (name \"MPN\") (value \"RC0805FR-071KL\")) (property (name \"Manufacturer\") (value \"Yageo\")))\n    (comp (ref \"C1\") (value \"100nF 50V C0G\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"C0805C104J5GAC7800\")) (property (name \"Manufacturer\") (value \"KEMET\")))\n    (comp (ref \"C2\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C3\") (value \"10uF 16V X5R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21A106KOQNNNE\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C4\") (value \"22uF 10V X5R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21A226MPQNNNE\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C5\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C6\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C7\") (value \"100nF 50V C0G\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"C0805C104J5GAC7800\")) (property (name \"Manufacturer\") (value \"KEMET\")))\n    (comp (ref \"C8\") (value \"100nF 50V C0G\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"C0805C104J5GAC7800\")) (property (name \"Manufacturer\") (value \"KEMET\")))\n    (comp (ref \"C9\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C10\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C11\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"C12\") (value \"100nF 50V X7R\") (footprint \"Capacitor_SMD:C_0805_2012Metric\") (property (name \"MPN\") (value \"CL21B104KBCNNNC\")) (property (name \"Manufacturer\") (value \"Samsung\")))\n    (comp (ref \"D11\") (value \"LED_RED_ALARM\") (footprint \"LED_SMD:LED_0805_2012Metric\") (property (name \"MPN\") (value \"APT2012EC\")) (property (name \"Manufacturer\") (value \"Kingbright\")))\n    (comp (ref \"D12\") (value \"LED_CYAN_STATUS\") (footprint \"LED_SMD:LED_0805_2012Metric\") (property (name \"MPN\") (value \"APT2012QBC/D\")) (property (name \"Manufacturer\") (value \"Kingbright\")))\n  )\n  (nets\n    (net (code \"1\") (name \"GND\")\n      (node (ref \"U1\") (pin \"GND\"))\n      (node (ref \"U2\") (pin \"GND\"))\n      (node (ref \"U3\") (pin \"1\"))\n      (node (ref \"U3\") (pin \"2\"))\n      (node (ref \"U3\") (pin \"7\"))\n      (node (ref \"U4\") (pin \"6\"))\n      (node (ref \"U4\") (pin \"7\"))\n      (node (ref \"U4\") (pin \"8\"))\n      (node (ref \"U5\") (pin \"2\"))\n      (node (ref \"U6\") (pin \"2\"))\n      (node (ref \"J1\") (pin \"2\"))\n      (node (ref \"J2\") (pin \"2\"))\n      (node (ref \"J3\") (pin \"1\"))\n      (node (ref \"J4\") (pin \"A1\"))\n      (node (ref \"J6\") (pin \"2\"))\n      (node (ref \"J6\") (pin \"4\"))\n      (node (ref \"J6\") (pin \"6\"))\n      (node (ref \"J6\") (pin \"8\"))\n      (node (ref \"SW1\") (pin \"2\"))\n      (node (ref \"Q1\") (pin \"2\"))\n      (node (ref \"D1\") (pin \"A\"))\n      (node (ref \"D2\") (pin \"A\"))\n      (node (ref \"D3\") (pin \"A\"))\n      (node (ref \"D4\") (pin \"A\"))\n      (node (ref \"D5\") (pin \"A\"))\n      (node (ref \"D6\") (pin \"A\"))\n      (node (ref \"D7\") (pin \"A\"))\n      (node (ref \"D8\") (pin \"1\"))\n      (node (ref \"D9\") (pin \"1\"))\n      (node (ref \"D10\") (pin \"1\"))\n      (node (ref \"C2\") (pin \"2\"))\n      (node (ref \"C3\") (pin \"2\"))\n      (node (ref \"C4\") (pin \"2\"))\n      (node (ref \"C5\") (pin \"2\"))\n      (node (ref \"C6\") (pin \"2\"))\n      (node (ref \"C9\") (pin \"2\"))\n      (node (ref \"C10\") (pin \"2\"))\n      (node (ref \"C11\") (pin \"2\"))\n      (node (ref \"C12\") (pin \"2\"))\n      (node (ref \"D11\") (pin \"K\"))\n      (node (ref \"D12\") (pin \"K\"))\n    )\n    (net (code \"2\") (name \"3V3\")\n      (node (ref \"U1\") (pin \"3V3\"))\n      (node (ref \"U2\") (pin \"VOUT\"))\n      (node (ref \"U2\") (pin \"TAB\"))\n      (node (ref \"U3\") (pin \"6\"))\n      (node (ref \"U4\") (pin \"16\"))\n      (node (ref \"U5\") (pin \"5\"))\n      (node (ref \"LS1\") (pin \"1\"))\n      (node (ref \"D8\") (pin \"2\"))\n      (node (ref \"D9\") (pin \"2\"))\n      (node (ref \"D10\") (pin \"2\"))\n      (node (ref \"R15\") (pin \"1\"))\n      (node (ref \"R16\") (pin \"1\"))\n      (node (ref \"R17\") (pin \"1\"))\n      (node (ref \"R18\") (pin \"1\"))\n      (node (ref \"R19\") (pin \"1\"))\n      (node (ref \"R20\") (pin \"1\"))\n      (node (ref \"R21\") (pin \"1\"))\n      (node (ref \"R22\") (pin \"1\"))\n      (node (ref \"C2\") (pin \"1\"))\n      (node (ref \"C4\") (pin \"1\"))\n      (node (ref \"C5\") (pin \"1\"))\n      (node (ref \"C6\") (pin \"1\"))\n    )\n    (net (code \"3\") (name \"MUX_OUT\")\n      (node (ref \"U1\") (pin \"GPIO36\"))\n      (node (ref \"U5\") (pin \"1\"))\n      (node (ref \"U5\") (pin \"4\"))\n    )\n    (net (code \"4\") (name \"NTC0\")\n      (node (ref \"U1\") (pin \"GPIO39\"))\n      (node (ref \"J6\") (pin \"1\"))\n      (node (ref \"R18\") (pin \"2\"))\n      (node (ref \"C9\") (pin \"1\"))\n    )\n    (net (code \"5\") (name \"NTC1\")\n      (node (ref \"U1\") (pin \"GPIO34\"))\n      (node (ref \"J6\") (pin \"3\"))\n      (node (ref \"R19\") (pin \"2\"))\n      (node (ref \"C10\") (pin \"1\"))\n    )\n    (net (code \"6\") (name \"NTC2\")\n      (node (ref \"U1\") (pin \"GPIO35\"))\n      (node (ref \"J6\") (pin \"5\"))\n      (node (ref \"R20\") (pin \"2\"))\n      (node (ref \"C11\") (pin \"1\"))\n    )\n    (net (code \"7\") (name \"NTC3\")\n      (node (ref \"U1\") (pin \"GPIO32\"))\n      (node (ref \"J6\") (pin \"7\"))\n      (node (ref \"R21\") (pin \"2\"))\n      (node (ref \"C12\") (pin \"1\"))\n    )\n    (net (code \"8\") (name \"I2C_SDA\")\n      (node (ref \"U1\") (pin \"GPIO21\"))\n      (node (ref \"U3\") (pin \"4\"))\n      (node (ref \"R15\") (pin \"2\"))\n    )\n    (net (code \"9\") (name \"I2C_SCL\")\n      (node (ref \"U1\") (pin \"GPIO22\"))\n      (node (ref \"U3\") (pin \"5\"))\n      (node (ref \"R16\") (pin \"2\"))\n    )\n    (net (code \"10\") (name \"INA_ALERT\")\n      (node (ref \"U1\") (pin \"GPIO16\"))\n      (node (ref \"U3\") (pin \"3\"))\n      (node (ref \"R17\") (pin \"2\"))\n    )\n    (net (code \"11\") (name \"MUX_S0\")\n      (node (ref \"U1\") (pin \"GPIO25\"))\n      (node (ref \"U4\") (pin \"11\"))\n    )\n    (net (code \"12\") (name \"MUX_S1\")\n      (node (ref \"U1\") (pin \"GPIO26\"))\n      (node (ref \"U4\") (pin \"10\"))\n    )\n    (net (code \"13\") (name \"MUX_S2\")\n      (node (ref \"U1\") (pin \"GPIO27\"))\n      (node (ref \"U4\") (pin \"9\"))\n    )\n    (net (code \"14\") (name \"LED_ALARM\")\n      (node (ref \"U1\") (pin \"GPIO17\"))\n      (node (ref \"R23\") (pin \"1\"))\n    )\n    (net (code \"15\") (name \"LED_STAT\")\n      (node (ref \"U1\") (pin \"GPIO18\"))\n      (node (ref \"R24\") (pin \"1\"))\n    )\n    (net (code \"16\") (name \"VUSB_5V\")\n      (node (ref \"U2\") (pin \"VIN\"))\n      (node (ref \"J4\") (pin \"A4\"))\n      (node (ref \"C3\") (pin \"1\"))\n    )\n    (net (code \"17\") (name \"VBUS_SENSE\")\n      (node (ref \"U3\") (pin \"8\"))\n      (node (ref \"F7\") (pin \"2\"))\n      (node (ref \"D7\") (pin \"K\"))\n    )\n    (net (code \"18\") (name \"SHUNT_N_FILT\")\n      (node (ref \"U3\") (pin \"9\"))\n      (node (ref \"R14\") (pin \"2\"))\n      (node (ref \"C1\") (pin \"2\"))\n    )\n    (net (code \"19\") (name \"SHUNT_P_FILT\")\n      (node (ref \"U3\") (pin \"10\"))\n      (node (ref \"R13\") (pin \"2\"))\n      (node (ref \"C1\") (pin \"1\"))\n    )\n    (net (code \"20\") (name \"DIV_B5\")\n      (node (ref \"U4\") (pin \"1\"))\n      (node (ref \"D10\") (pin \"3\"))\n      (node (ref \"R9\") (pin \"2\"))\n      (node (ref \"R10\") (pin \"1\"))\n    )\n    (net (code \"21\") (name \"DIV_B6\")\n      (node (ref \"U4\") (pin \"2\"))\n      (node (ref \"R11\") (pin \"2\"))\n      (node (ref \"R12\") (pin \"1\"))\n    )\n    (net (code \"22\") (name \"MUX_COM\")\n      (node (ref \"U4\") (pin \"3\"))\n      (node (ref \"U5\") (pin \"3\"))\n    )\n    (net (code \"23\") (name \"AGND\")\n      (node (ref \"U4\") (pin \"4\"))\n      (node (ref \"R2\") (pin \"2\"))\n      (node (ref \"R4\") (pin \"2\"))\n      (node (ref \"R6\") (pin \"2\"))\n      (node (ref \"R8\") (pin \"2\"))\n      (node (ref \"R10\") (pin \"2\"))\n      (node (ref \"R12\") (pin \"2\"))\n      (node (ref \"C7\") (pin \"2\"))\n      (node (ref \"C8\") (pin \"2\"))\n    )\n    (net (code \"24\") (name \"VREF_2V048\")\n      (node (ref \"U4\") (pin \"5\"))\n      (node (ref \"U6\") (pin \"1\"))\n      (node (ref \"R22\") (pin \"2\"))\n    )\n    (net (code \"25\") (name \"DIV_B4\")\n      (node (ref \"U4\") (pin \"12\"))\n      (node (ref \"R7\") (pin \"2\"))\n      (node (ref \"R8\") (pin \"1\"))\n      (node (ref \"C8\") (pin \"1\"))\n    )\n    (net (code \"26\") (name \"DIV_B1\")\n      (node (ref \"U4\") (pin \"13\"))\n      (node (ref \"D8\") (pin \"3\"))\n      (node (ref \"R1\") (pin \"2\"))\n      (node (ref \"R2\") (pin \"1\"))\n      (node (ref \"C7\") (pin \"1\"))\n    )\n    (net (code \"27\") (name \"DIV_B2\")\n      (node (ref \"U4\") (pin \"14\"))\n      (node (ref \"R3\") (pin \"2\"))\n      (node (ref \"R4\") (pin \"1\"))\n    )\n    (net (code \"28\") (name \"DIV_B3\")\n      (node (ref \"U4\") (pin \"15\"))\n      (node (ref \"D9\") (pin \"3\"))\n      (node (ref \"R5\") (pin \"2\"))\n      (node (ref \"R6\") (pin \"1\"))\n    )\n    (net (code \"29\") (name \"NC\")\n      (node (ref \"U6\") (pin \"3\"))\n    )\n    (net (code \"30\") (name \"PACK_POS_IN\")\n      (node (ref \"R_SHUNT\") (pin \"1\"))\n      (node (ref \"J1\") (pin \"1\"))\n    )\n    (net (code \"31\") (name \"LOAD_POS_OUT\")\n      (node (ref \"R_SHUNT\") (pin \"2\"))\n      (node (ref \"J2\") (pin \"1\"))\n      (node (ref \"F7\") (pin \"1\"))\n    )\n    (net (code \"32\") (name \"SHUNT_SENSE_P\")\n      (node (ref \"R_SHUNT\") (pin \"3\"))\n      (node (ref \"R13\") (pin \"1\"))\n    )\n    (net (code \"33\") (name \"SHUNT_SENSE_N\")\n      (node (ref \"R_SHUNT\") (pin \"4\"))\n      (node (ref \"R14\") (pin \"1\"))\n    )\n    (net (code \"34\") (name \"TAP_B1_RAW\")\n      (node (ref \"J3\") (pin \"2\"))\n      (node (ref \"F1\") (pin \"1\"))\n    )\n    (net (code \"35\") (name \"TAP_B2_RAW\")\n      (node (ref \"J3\") (pin \"3\"))\n      (node (ref \"F2\") (pin \"1\"))\n    )\n    (net (code \"36\") (name \"TAP_B3_RAW\")\n      (node (ref \"J3\") (pin \"4\"))\n      (node (ref \"F3\") (pin \"1\"))\n    )\n    (net (code \"37\") (name \"TAP_B4_RAW\")\n      (node (ref \"J3\") (pin \"5\"))\n      (node (ref \"F4\") (pin \"1\"))\n    )\n    (net (code \"38\") (name \"TAP_B5_RAW\")\n      (node (ref \"J3\") (pin \"6\"))\n      (node (ref \"F5\") (pin \"1\"))\n    )\n    (net (code \"39\") (name \"TAP_B6_RAW\")\n      (node (ref \"J3\") (pin \"7\"))\n      (node (ref \"F6\") (pin \"1\"))\n    )\n    (net (code \"40\") (name \"GPIO4\")\n      (node (ref \"SW1\") (pin \"1\"))\n    )\n    (net (code \"41\") (name \"GPIO19\")\n      (node (ref \"Q1\") (pin \"1\"))\n    )\n    (net (code \"42\") (name \"BZ_N\")\n      (node (ref \"Q1\") (pin \"3\"))\n      (node (ref \"LS1\") (pin \"2\"))\n    )\n    (net (code \"43\") (name \"TAP_B1_FUSED\")\n      (node (ref \"F1\") (pin \"2\"))\n      (node (ref \"D1\") (pin \"K\"))\n      (node (ref \"R1\") (pin \"1\"))\n    )\n    (net (code \"44\") (name \"TAP_B2_FUSED\")\n      (node (ref \"F2\") (pin \"2\"))\n      (node (ref \"D2\") (pin \"K\"))\n      (node (ref \"R3\") (pin \"1\"))\n    )\n    (net (code \"45\") (name \"TAP_B3_FUSED\")\n      (node (ref \"F3\") (pin \"2\"))\n      (node (ref \"D3\") (pin \"K\"))\n      (node (ref \"R5\") (pin \"1\"))\n    )\n    (net (code \"46\") (name \"TAP_B4_FUSED\")\n      (node (ref \"F4\") (pin \"2\"))\n      (node (ref \"D4\") (pin \"K\"))\n      (node (ref \"R7\") (pin \"1\"))\n    )\n    (net (code \"47\") (name \"TAP_B5_FUSED\")\n      (node (ref \"F5\") (pin \"2\"))\n      (node (ref \"D5\") (pin \"K\"))\n      (node (ref \"R9\") (pin \"1\"))\n    )\n    (net (code \"48\") (name \"TAP_B6_FUSED\")\n      (node (ref \"F6\") (pin \"2\"))\n      (node (ref \"D6\") (pin \"K\"))\n      (node (ref \"R11\") (pin \"1\"))\n    )\n    (net (code \"49\") (name \"LED_A_K\")\n      (node (ref \"R23\") (pin \"2\"))\n      (node (ref \"D11\") (pin \"A\"))\n    )\n    (net (code \"50\") (name \"LED_S_K\")\n      (node (ref \"R24\") (pin \"2\"))\n      (node (ref \"D12\") (pin \"A\"))\n    )\n  )\n)\n",
+  "sketch_files": {
+    "cellguard_config.h": "#pragma once\n\n#include <stdint.h>\n\n/**\n * CellGuard Hardware Configuration & Non-Invasive Safety Guards\n *\n * CRITICAL SAFETY INVARIANT:\n * CellGuard is strictly a read-only telemetry and health analytics monitor.\n * It MUST always be operated in parallel with an external commercial BMS\n * and inline main fuse. No balancing, charging, or FET switching pins exist.\n */\n\n#ifndef CELLGUARD_MONITOR_ONLY\n#define CELLGUARD_MONITOR_ONLY 1\n#endif\n#define CELLGUARD_BALANCING_SUPPORTED 0\n#define CELLGUARD_CHARGING_SUPPORTED 0\n#define CELLGUARD_FET_SWITCHING_SUPPORTED 0\n\nnamespace cellguard {\n\n// --- ESP32-WROOM-32E GPIO Pin Map (Matches KiCad 8 Schematic) ---\nconstexpr uint8_t PIN_I2C_SDA       = 21;\nconstexpr uint8_t PIN_I2C_SCL       = 22;\nconstexpr uint8_t PIN_INA_ALERT     = 16;  // Active-low open-drain alert from INA226\n\nconstexpr uint8_t PIN_CELL_MUX_ADC  = 36;  // ADC1_CH0 (input-only) via MCP6001 buffer\nconstexpr uint8_t PIN_MUX_S0        = 25;  // CD74HC4051 address bit 0\nconstexpr uint8_t PIN_MUX_S1        = 26;  // CD74HC4051 address bit 1\nconstexpr uint8_t PIN_MUX_S2        = 27;  // CD74HC4051 address bit 2\n\nconstexpr uint8_t PIN_NTC_0         = 39;  // ADC1_CH3 - Cell Group A core\nconstexpr uint8_t PIN_NTC_1         = 34;  // ADC1_CH6 - Cell Group B core\nconstexpr uint8_t PIN_NTC_2         = 35;  // ADC1_CH7 - External BMS / Busbar\nconstexpr uint8_t PIN_NTC_3         = 32;  // ADC1_CH4 - Shunt / Ambient reference\n\nconstexpr uint8_t PIN_LED_ALARM     = 17;  // Red hardware alarm indicator LED\nconstexpr uint8_t PIN_LED_STATUS    = 18;  // Green/Cyan heartbeat LED\nconstexpr uint8_t PIN_BUZZER_ALERT  = 19;  // Piezo alert buzzer (low-current signal only)\nconstexpr uint8_t PIN_CAL_BTN       = 4;   // Push-button for alarm mute / calibration ack\n\n// --- System & Pack Constants ---\nconstexpr uint8_t MAX_SERIES_CELLS  = 6;\nconstexpr uint8_t NUM_NTC_CHANNELS  = 4;\nconstexpr float   ADC_VREF_DEFAULT_V = 3.300f;\nconstexpr float   MUX_VREF_PREC_V    = 2.048f;  // LM4040AIM3-2.0 precision reference on CH7\n\nstruct AlarmThresholds {\n    float cell_ov_warn_v        = 4.21f;\n    float cell_ov_crit_v        = 4.25f;\n    float cell_uv_warn_v        = 3.00f;\n    float cell_uv_crit_v        = 2.75f;\n    float cell_delta_warn_mv    = 50.0f;\n    float cell_delta_crit_mv    = 150.0f;\n    float max_discharge_a       = 45.0f;\n    float max_charge_a          = 15.0f;\n    float temp_warn_c           = 50.0f;\n    float temp_crit_c           = 60.0f;\n    float dtdt_warn_c_per_min   = 2.0f;\n    float dtdt_crit_c_per_min   = 5.0f;\n    float rdc_ratio_warn        = 1.75f;\n    float tap_mismatch_max_v    = 0.35f;\n};\n\nstruct PackConfig {\n    uint8_t series_cells          = 4;       // Configurable 1S..6S (default 4S 14.8V / 6S 22.2V)\n    float   nominal_capacity_mah  = 5000.0f; // 21700 50E/M50T nominal pack capacity\n    float   r_shunt_ohm           = 0.001f;  // 1.0 mOhm 4-wire Kelvin shunt\n    float   max_expected_a        = 60.0f;   // Full-scale expected pack current\n    float   r_dc_nominal_cell_mohm = 22.0f;  // New 21700 cell nominal DC-IR\n    AlarmThresholds alarms{};\n};\n\n}  // namespace cellguard\n",
+    "main.cpp": "/**\n * CellGuard Firmware Entry Point (ESP32-WROOM-32E)\n *\n * Non-Invasive 21700 Li-Ion Pack Telemetry & Health Analytics Instrument (1S-6S)\n * SAFETY: Strictly passive monitoring alongside an external commercial BMS + main fuse.\n *         Zero balancing, zero charging, zero high-current switching FET control.\n */\n\n#include <Arduino.h>\n#include <Wire.h>\n\n#include \"cellguard_config.h\"\n#include \"drivers/ina226_driver.h\"\n#include \"drivers/ntc_array.h\"\n#include \"drivers/cell_tap_monitor.h\"\n#include \"analytics/battery_analytics.h\"\n#include \"calibration/cal_tool.h\"\n\nusing namespace cellguard;\n\nnamespace {\n\nconstexpr uint8_t kNtcPins[NUM_NTC_CHANNELS] = {\n    PIN_NTC_0, PIN_NTC_1, PIN_NTC_2, PIN_NTC_3\n};\n\nPackConfig       g_pack_cfg{};\nINA226Driver     g_ina(INA226Driver::DEFAULT_ADDR, static_cast<int8_t>(PIN_INA_ALERT));\nNTCArray         g_ntc(kNtcPins);\nCellTapMonitor   g_taps(PIN_CELL_MUX_ADC, PIN_MUX_S0, PIN_MUX_S1, PIN_MUX_S2);\nBatteryAnalytics g_analytics(g_pack_cfg);\nCalTool          g_cal_tool;\n\nINA226Sample     g_latest_ina{};\nCellTapSnapshot  g_latest_taps{};\nNTCArraySummary  g_latest_ntc{};\n\nuint32_t g_last_fast_ms      = 0;\nuint32_t g_last_telemetry_ms = 0;\nbool     g_alarm_muted       = false;\n\nvoid updateAlarmIndicators(uint32_t alarm_mask) {\n    const bool critical = (alarm_mask & (\n        ALARM_CELL_OV_CRIT | ALARM_CELL_UV_CRIT | ALARM_CELL_DELTA_CRIT |\n        ALARM_OC_DISCHARGE | ALARM_OC_CHARGE | ALARM_TEMP_CRIT |\n        ALARM_RUNAWAY_CRIT | ALARM_TAP_FAULT | ALARM_INA_HW_ALERT\n    )) != 0;\n\n    const bool any_alarm = (alarm_mask != ALARM_NONE);\n    digitalWrite(PIN_LED_ALARM, any_alarm ? HIGH : LOW);\n    digitalWrite(PIN_BUZZER_ALERT, (critical && !g_alarm_muted) ? HIGH : LOW);\n}\n\nvoid emitTelemetryJson(\n    uint32_t now_ms,\n    const INA226Sample& ina,\n    const CellTapSnapshot& taps,\n    const NTCArraySummary& ntc,\n    const AnalyticsState& st) {\n\n    Serial.printf(\n        \"{\\\"type\\\":\\\"telemetry\\\",\\\"ts_ms\\\":%lu,\\\"series_cells\\\":%u,\"\n        \"\\\"bus_v\\\":%.4f,\\\"shunt_mv\\\":%.3f,\\\"current_a\\\":%.4f,\\\"power_w\\\":%.3f,\"\n        \"\\\"soc_pct\\\":%.2f,\\\"soc_ocv_pct\\\":%.2f,\\\"soh_pct\\\":%.2f,\"\n        \"\\\"mah_discharged\\\":%.2f,\\\"wh_discharged\\\":%.3f,\"\n        \"\\\"r_dc_pack_ohm\\\":%.5f,\\\"r_dc_cell_mohm\\\":%.2f,\"\n        \"\\\"cell_min_v\\\":%.4f,\\\"cell_max_v\\\":%.4f,\\\"cell_delta_mv\\\":%.1f,\"\n        \"\\\"temp_max_c\\\":%.2f,\\\"dtdt_max_c_min\\\":%.2f,\\\"alarm_mask\\\":%lu,\"\n        \"\\\"cells_v\\\":[\",\n        static_cast<unsigned long>(now_ms),\n        taps.series_cells,\n        ina.bus_voltage_v,\n        ina.shunt_voltage_mv,\n        ina.current_a,\n        ina.power_w,\n        st.soc_percent,\n        st.soc_ocv_est_percent,\n        st.soh_percent,\n        st.mah_discharged,\n        st.wh_discharged,\n        st.r_dc_pack_ohm,\n        st.r_dc_cell_mohm,\n        taps.cell_min_v,\n        taps.cell_max_v,\n        taps.cell_delta_mv,\n        ntc.max_temp_c,\n        ntc.max_dtdt_c_per_min,\n        static_cast<unsigned long>(st.alarm_mask)\n    );\n\n    for (uint8_t i = 0; i < taps.series_cells; ++i) {\n        Serial.printf(\"%.4f%s\", taps.cell_voltages_v[i], (i + 1 < taps.series_cells) ? \",\" : \"\");\n    }\n    Serial.print(F(\"],\\\"temps_c\\\":[\"));\n    for (uint8_t i = 0; i < NUM_NTC_CHANNELS; ++i) {\n        Serial.printf(\"%.2f%s\", ntc.channels[i].temp_c, (i + 1 < NUM_NTC_CHANNELS) ? \",\" : \"\");\n    }\n    Serial.println(F(\"]}\"));\n}\n\n}  // namespace\n\nvoid setup() {\n    Serial.begin(115200);\n    delay(150);\n\n    pinMode(PIN_LED_ALARM, OUTPUT);\n    pinMode(PIN_LED_STATUS, OUTPUT);\n    pinMode(PIN_BUZZER_ALERT, OUTPUT);\n    pinMode(PIN_CAL_BTN, INPUT_PULLUP);\n    digitalWrite(PIN_LED_ALARM, LOW);\n    digitalWrite(PIN_LED_STATUS, HIGH);\n    digitalWrite(PIN_BUZZER_ALERT, LOW);\n\n    Wire.begin(PIN_I2C_SDA, PIN_I2C_SCL);\n    Wire.setClock(400000);\n\n    g_ntc.begin();\n    g_taps.begin();\n\n    const bool ina_ok = g_ina.begin(g_pack_cfg.r_shunt_ohm, g_pack_cfg.max_expected_a);\n    g_cal_tool.begin(g_ina, g_taps, g_analytics, g_pack_cfg);\n\n    if (ina_ok) {\n        // Configure hardware ALERT latch on severe discharge overcurrent\n        g_ina.configureAlert(INA226AlertMode::SHUNT_OVER_VOLT, g_pack_cfg.alarms.max_discharge_a, true);\n    }\n\n    g_latest_ina  = g_ina.readSample();\n    g_latest_taps = g_taps.sampleTaps(g_latest_ina.valid ? g_latest_ina.bus_voltage_v : -1.0f,\n                                      g_pack_cfg.alarms.tap_mismatch_max_v);\n    g_analytics.resetSession(g_latest_taps.valid ? (g_latest_taps.pack_sum_v / g_pack_cfg.series_cells) : 3.80f);\n\n    Serial.printf(\"{\\\"type\\\":\\\"boot\\\",\\\"fw\\\":\\\"%s\\\",\\\"monitor_only\\\":%d,\\\"ina226_ok\\\":%s}\\n\",\n                  CELLGUARD_FW_VERSION,\n                  CELLGUARD_MONITOR_ONLY,\n                  ina_ok ? \"true\" : \"false\");\n\n    g_last_fast_ms = millis();\n    g_last_telemetry_ms = g_last_fast_ms;\n}\n\nvoid loop() {\n    const uint32_t now_ms = millis();\n\n    // Non-blocking calibration CLI\n    g_cal_tool.pollSerialCli(g_latest_ina, g_latest_taps);\n\n    if (digitalRead(PIN_CAL_BTN) == LOW) {\n        g_alarm_muted = true;\n    }\n\n    // 50 ms fast INA226 acquisition loop for instantaneous load-step & overcurrent capture\n    if (now_ms - g_last_fast_ms >= 50) {\n        g_last_fast_ms = now_ms;\n        if (g_ina.isConnected()) {\n            g_latest_ina = g_ina.readSample();\n        }\n    }\n\n    // 1000 ms full pack analytics & telemetry frame loop\n    if (now_ms - g_last_telemetry_ms >= 1000) {\n        const float dt_s = static_cast<float>(now_ms - g_last_telemetry_ms) / 1000.0f;\n        g_last_telemetry_ms = now_ms;\n\n        g_latest_ntc  = g_ntc.sampleAll(now_ms, g_pack_cfg.alarms);\n        g_latest_taps = g_taps.sampleTaps(\n            g_latest_ina.valid ? g_latest_ina.bus_voltage_v : -1.0f,\n            g_pack_cfg.alarms.tap_mismatch_max_v\n        );\n\n        const float pack_v = g_latest_ina.valid ? g_latest_ina.bus_voltage_v : g_latest_taps.pack_sum_v;\n        const float pack_i = g_latest_ina.valid ? g_latest_ina.current_a : 0.0f;\n        const bool  hw_alt = g_latest_ina.valid && g_latest_ina.alert_triggered;\n\n        const AnalyticsState& state = g_analytics.update(pack_v, pack_i, dt_s, g_latest_taps, g_latest_ntc, hw_alt);\n        updateAlarmIndicators(state.alarm_mask);\n        digitalWrite(PIN_LED_STATUS, !digitalRead(PIN_LED_STATUS));\n\n        if (g_cal_tool.streamJsonEnabled()) {\n            emitTelemetryJson(now_ms, g_latest_ina, g_latest_taps, g_latest_ntc, state);\n        }\n    }\n}\n"
+  },
+  "enclosure": {
+    "file": "cellguard_enclosure.stl",
+    "triangle_count": 192,
+    "dimensions_mm": [
+      96.0,
+      68.0,
+      28.0
+    ]
+  },
+  "checksum_sha256": "50e98f8b10255e8bfa36a90a27a79b7a4bde0253f87864340eae0a97997aef27"
+}

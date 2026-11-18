@@ -1,0 +1,22 @@
+** CellGuard KiCad 8 DRC & Design Verification Report **
+Generated: 2026-11-18
+Board: cellguard.kicad_pcb (90.00 mm x 62.00 mm, 2-Layer FR4, 2 oz copper)
+
+Design Rules Checked:
+  - Minimum track clearance: 0.20 mm (HighCurrent >= 0.40 mm) -> PASS
+  - Minimum track width: 0.25 mm (Power paths 4.00 mm F.Cu + B.Cu) -> PASS
+  - Minimum via drill / annular ring: 0.35 mm / 0.175 mm -> PASS
+  - Edge.Cuts closed outline & M3 mounting hole clearance (>= 3.0 mm) -> PASS
+  - Kelvin 4-Wire Shunt sense routing (SHUNT_SENSE_P / SHUNT_SENSE_N):
+      Symmetric 0.25 mm inner-tab routing verified -> PASS
+  - Sense-tap PPTC polyfuse (F1..F7) + SMAJ28A TVS (D1..D7) placement:
+      Adjacent to J3 JST-XH entry -> PASS
+  - Safety Invariant Verification:
+      No charge converter, no balance bleed FETs, no high-current disconnect FETs -> PASS
+
+Summary:
+  Total Components: 70
+  Total Nets: 50
+  DRC Errors: 0
+  Unconnected Items: 0
+  Status: DRC VERIFIED CLEAN

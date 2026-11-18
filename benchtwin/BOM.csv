@@ -1,0 +1,71 @@
+Designators,Qty,Value,Footprint,Manufacturer,MPN,Description
+U1,1,ESP32-DevKitC-32E,Module:ESP32-WROOM-32E,Espressif,ESP32-WROOM-32E-N4,WiFi/BLE Dual-Core Telemetry MCU (ADC1 + I2C + NVS)
+U2,1,AMS1117-3.3,Package_TO_SOT_SMD:SOT-223-3_TabPin2,AMS,AMS1117-3.3,5V to 3.3V 800mA LDO Regulator (Isolated from cell taps)
+U3,1,INA226AIDGSR,Package_SO:VSSOP-10_3x3mm_P0.5mm,Texas Instruments,INA226AIDGSR,16-bit Precision I2C Current/Bus Voltage Monitor (0x40)
+U4,1,CD74HC4051M,Package_SO:SOIC-16_3.9x9.9mm_P1.27mm,Texas Instruments,CD74HC4051M96,8:1 Analog Multiplexer for B1-B6 taps + GND/VREF cal
+U5,1,MCP6001T-I/OT,Package_TO_SOT_SMD:SOT-23-5,Microchip,MCP6001T-I/OT,Unity-gain SAR ADC driver buffer for MUX output
+U6,1,LM4040AIM3-2.0,Package_TO_SOT_SMD:SOT-23,Texas Instruments,LM4040AIM3-2.0/NOPB,2.048V 0.1% Precision Shunt Reference on MUX CH7
+R_SHUNT,1,1.0mOhm 5W Kelvin,Resistor_SMD:R_Shunt_4Wire_CSS4J_4026,Bourns,CSS4J-4026R-1L00F,"4-Wire Kelvin Precision Shunt (1.0 mOhm, 1%, 5W)"
+J1,1,PACK_POS_IN (XT60),Connector_AMASS:AMASS_XT60-M_1x02_P7.2mm,Amass,XT60PW-M,Pack+ Input downstream of External Commercial BMS + Inline Main Fuse
+J2,1,LOAD_POS_OUT (XT60),Connector_AMASS:AMASS_XT60-F_1x02_P7.2mm,Amass,XT60PW-F,Load+ Output post-shunt
+J3,1,CELL_TAPS_1S-6S,Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical,JST,B7B-XH-A(LF)(SN),"7-pin Cell Group Sense Tap Header (B0/GND, B1..B6)"
+J4,1,USB-C_UART_5V,Connector_USB:USB_C_Receptacle_16Pin,Korean Hroparts,TYPE-C-31-M-12,Isolated Logic 5V Power & UART Telemetry/Calibration Port
+J6,1,NTC_ARRAY_4CH,Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical,JST,B8B-XH-A(LF)(SN),4-Channel 10k NTC Thermistor Header (4x signal + 4x GND)
+SW1,1,CAL_MUTE_BTN,Button_Switch_SMD:SW_SPST_TL3342,E-Switch,TL3342F160QG,Pushbutton for local piezo mute / calibration ack
+Q1,1,2N7002,Package_TO_SOT_SMD:SOT-23,Vishay,2N7002K-T1-GE3,Low-current piezo buzzer signal driver (NOT a pack FET)
+LS1,1,Piezo_Alert_3V3,Buzzer_Beeper:Buzzer_12x9.5RM7.6,Jiangsu Huaneng,MLT-8530,Audible critical alarm transducer
+F1,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B1 resettable PPTC polyfuse
+D1,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B1 28V TVS surge clamp to GND
+F2,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B2 resettable PPTC polyfuse
+D2,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B2 28V TVS surge clamp to GND
+F3,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B3 resettable PPTC polyfuse
+D3,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B3 28V TVS surge clamp to GND
+F4,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B4 resettable PPTC polyfuse
+D4,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B4 28V TVS surge clamp to GND
+F5,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B5 resettable PPTC polyfuse
+D5,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B5 28V TVS surge clamp to GND
+F6,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,Sense tap B6 resettable PPTC polyfuse
+D6,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,Sense tap B6 28V TVS surge clamp to GND
+F7,1,100mA 60V PPTC,Fuse:Fuse_0805_2012Metric,Littelfuse,0805L010YR,INA226 VBUS sense resettable PPTC polyfuse
+D7,1,SMAJ28A,Diode_SMD:D_SMA,Littelfuse,SMAJ28A,INA226 VBUS 28V TVS clamp to GND
+D8,1,BAT54S,Package_TO_SOT_SMD:SOT-23,Diodes Inc.,BAT54S-7-F,Dual Schottky rail clamp for DIV_B1 / DIV_B2
+D9,1,BAT54S,Package_TO_SOT_SMD:SOT-23,Diodes Inc.,BAT54S-7-F,Dual Schottky rail clamp for DIV_B3 / DIV_B4
+D10,1,BAT54S,Package_TO_SOT_SMD:SOT-23,Diodes Inc.,BAT54S-7-F,Dual Schottky rail clamp for DIV_B5 / DIV_B6
+R1,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,High-Z upper divider resistor for cell tap B1
+R2,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B1
+R3,1,300k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB304V,High-Z upper divider resistor for cell tap B2
+R4,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B2
+R5,1,499k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB4993V,High-Z upper divider resistor for cell tap B3
+R6,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B3
+R7,1,680k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB684V,High-Z upper divider resistor for cell tap B4
+R8,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B4
+R9,1,820k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB824V,High-Z upper divider resistor for cell tap B5
+R10,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B5
+R11,1,1.00M 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB105V,High-Z upper divider resistor for cell tap B6
+R12,1,100k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB104V,Lower divider resistor to AGND for cell tap B6
+R13,1,10R 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-0710RL,Kelvin positive RC filter resistor
+R14,1,10R 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-0710RL,Kelvin negative RC filter resistor
+R15,1,4.7k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-074K7L,I2C SDA pull-up
+R16,1,4.7k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-074K7L,I2C SCL pull-up
+R17,1,10k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-0710KL,INA226 open-drain ALERT pull-up
+R18,1,10k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB103V,NTC0 precision high-side pullup
+R19,1,10k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB103V,NTC1 precision high-side pullup
+R20,1,10k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB103V,NTC2 precision high-side pullup
+R21,1,10k 0.1%,Resistor_SMD:R_0805_2012Metric,Panasonic,ERA-6AEB103V,NTC3 precision high-side pullup
+R22,1,1.0k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-071KL,LM4040 2.048V bias resistor
+R23,1,1.0k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-071KL,Alarm LED current limit
+R24,1,1.0k 1%,Resistor_SMD:R_0805_2012Metric,Yageo,RC0805FR-071KL,Status LED current limit
+C1,1,100nF 50V C0G,Capacitor_SMD:C_0805_2012Metric,KEMET,C0805C104J5GAC7800,Kelvin shunt differential RC filter cap
+C2,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,INA226 decoupling cap
+C3,1,10uF 16V X5R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21A106KOQNNNE,LDO input bulk cap
+C4,1,22uF 10V X5R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21A226MPQNNNE,LDO output bulk cap
+C5,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,MUX CD74HC4051 decoupling
+C6,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,MCP6001 buffer decoupling
+C7,1,100nF 50V C0G,Capacitor_SMD:C_0805_2012Metric,KEMET,C0805C104J5GAC7800,Tap B1 RC anti-aliasing cap
+C8,1,100nF 50V C0G,Capacitor_SMD:C_0805_2012Metric,KEMET,C0805C104J5GAC7800,Tap B4 RC anti-aliasing cap
+C9,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,NTC0 ADC noise filter
+C10,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,NTC1 ADC noise filter
+C11,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,NTC2 ADC noise filter
+C12,1,100nF 50V X7R,Capacitor_SMD:C_0805_2012Metric,Samsung,CL21B104KBCNNNC,NTC3 ADC noise filter
+D11,1,LED_RED_ALARM,LED_SMD:LED_0805_2012Metric,Kingbright,APT2012EC,Hardware Alarm Indicator LED
+D12,1,LED_CYAN_STATUS,LED_SMD:LED_0805_2012Metric,Kingbright,APT2012QBC/D,Heartbeat Telemetry Status LED
