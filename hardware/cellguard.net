@@ -1,384 +1,8651 @@
-(export (version "E")
-  (design
-    (source "cellguard.kicad_sch")
-    (date "2026-11-18")
-    (tool "KiCad 8.0")
-    (sheet (number "1") (name "/") (tstamps "/")
-      (title_block
-        (title "CellGuard 21700 Pack Telemetry Monitor (1S-6S)")
-        (company "Jagjyot Engineering Portfolio")
-        (rev "1.0")
-        (comment (number "1") (value "SAFETY: Monitor-only instrument used alongside external commercial BMS + main fuse")))))
-  (components
-    (comp (ref "U1") (value "ESP32-DevKitC-32E") (footprint "Module:ESP32-WROOM-32E") (property (name "MPN") (value "ESP32-WROOM-32E-N4")) (property (name "Manufacturer") (value "Espressif")))
-    (comp (ref "U2") (value "AMS1117-3.3") (footprint "Package_TO_SOT_SMD:SOT-223-3_TabPin2") (property (name "MPN") (value "AMS1117-3.3")) (property (name "Manufacturer") (value "AMS")))
-    (comp (ref "U3") (value "INA226AIDGSR") (footprint "Package_SO:VSSOP-10_3x3mm_P0.5mm") (property (name "MPN") (value "INA226AIDGSR")) (property (name "Manufacturer") (value "Texas Instruments")))
-    (comp (ref "U4") (value "CD74HC4051M") (footprint "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm") (property (name "MPN") (value "CD74HC4051M96")) (property (name "Manufacturer") (value "Texas Instruments")))
-    (comp (ref "U5") (value "MCP6001T-I/OT") (footprint "Package_TO_SOT_SMD:SOT-23-5") (property (name "MPN") (value "MCP6001T-I/OT")) (property (name "Manufacturer") (value "Microchip")))
-    (comp (ref "U6") (value "LM4040AIM3-2.0") (footprint "Package_TO_SOT_SMD:SOT-23") (property (name "MPN") (value "LM4040AIM3-2.0/NOPB")) (property (name "Manufacturer") (value "Texas Instruments")))
-    (comp (ref "R_SHUNT") (value "1.0mOhm 5W Kelvin") (footprint "Resistor_SMD:R_Shunt_4Wire_CSS4J_4026") (property (name "MPN") (value "CSS4J-4026R-1L00F")) (property (name "Manufacturer") (value "Bourns")))
-    (comp (ref "J1") (value "PACK_POS_IN (XT60)") (footprint "Connector_AMASS:AMASS_XT60-M_1x02_P7.2mm") (property (name "MPN") (value "XT60PW-M")) (property (name "Manufacturer") (value "Amass")))
-    (comp (ref "J2") (value "LOAD_POS_OUT (XT60)") (footprint "Connector_AMASS:AMASS_XT60-F_1x02_P7.2mm") (property (name "MPN") (value "XT60PW-F")) (property (name "Manufacturer") (value "Amass")))
-    (comp (ref "J3") (value "CELL_TAPS_1S-6S") (footprint "Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical") (property (name "MPN") (value "B7B-XH-A(LF)(SN)")) (property (name "Manufacturer") (value "JST")))
-    (comp (ref "J4") (value "USB-C_UART_5V") (footprint "Connector_USB:USB_C_Receptacle_16Pin") (property (name "MPN") (value "TYPE-C-31-M-12")) (property (name "Manufacturer") (value "Korean Hroparts")))
-    (comp (ref "J6") (value "NTC_ARRAY_4CH") (footprint "Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical") (property (name "MPN") (value "B8B-XH-A(LF)(SN)")) (property (name "Manufacturer") (value "JST")))
-    (comp (ref "SW1") (value "CAL_MUTE_BTN") (footprint "Button_Switch_SMD:SW_SPST_TL3342") (property (name "MPN") (value "TL3342F160QG")) (property (name "Manufacturer") (value "E-Switch")))
-    (comp (ref "Q1") (value "2N7002") (footprint "Package_TO_SOT_SMD:SOT-23") (property (name "MPN") (value "2N7002K-T1-GE3")) (property (name "Manufacturer") (value "Vishay")))
-    (comp (ref "LS1") (value "Piezo_Alert_3V3") (footprint "Buzzer_Beeper:Buzzer_12x9.5RM7.6") (property (name "MPN") (value "MLT-8530")) (property (name "Manufacturer") (value "Jiangsu Huaneng")))
-    (comp (ref "F1") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D1") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F2") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D2") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F3") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D3") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F4") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D4") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F5") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D5") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F6") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D6") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "F7") (value "100mA 60V PPTC") (footprint "Fuse:Fuse_0805_2012Metric") (property (name "MPN") (value "0805L010YR")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D7") (value "SMAJ28A") (footprint "Diode_SMD:D_SMA") (property (name "MPN") (value "SMAJ28A")) (property (name "Manufacturer") (value "Littelfuse")))
-    (comp (ref "D8") (value "BAT54S") (footprint "Package_TO_SOT_SMD:SOT-23") (property (name "MPN") (value "BAT54S-7-F")) (property (name "Manufacturer") (value "Diodes Inc.")))
-    (comp (ref "D9") (value "BAT54S") (footprint "Package_TO_SOT_SMD:SOT-23") (property (name "MPN") (value "BAT54S-7-F")) (property (name "Manufacturer") (value "Diodes Inc.")))
-    (comp (ref "D10") (value "BAT54S") (footprint "Package_TO_SOT_SMD:SOT-23") (property (name "MPN") (value "BAT54S-7-F")) (property (name "Manufacturer") (value "Diodes Inc.")))
-    (comp (ref "R1") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R2") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R3") (value "300k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB304V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R4") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R5") (value "499k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB4993V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R6") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R7") (value "680k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB684V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R8") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R9") (value "820k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB824V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R10") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R11") (value "1.00M 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB105V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R12") (value "100k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB104V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R13") (value "10R 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-0710RL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R14") (value "10R 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-0710RL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R15") (value "4.7k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-074K7L")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R16") (value "4.7k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-074K7L")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R17") (value "10k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-0710KL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R18") (value "10k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB103V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R19") (value "10k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB103V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R20") (value "10k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB103V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R21") (value "10k 0.1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "ERA-6AEB103V")) (property (name "Manufacturer") (value "Panasonic")))
-    (comp (ref "R22") (value "1.0k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-071KL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R23") (value "1.0k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-071KL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "R24") (value "1.0k 1%") (footprint "Resistor_SMD:R_0805_2012Metric") (property (name "MPN") (value "RC0805FR-071KL")) (property (name "Manufacturer") (value "Yageo")))
-    (comp (ref "C1") (value "100nF 50V C0G") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "C0805C104J5GAC7800")) (property (name "Manufacturer") (value "KEMET")))
-    (comp (ref "C2") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C3") (value "10uF 16V X5R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21A106KOQNNNE")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C4") (value "22uF 10V X5R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21A226MPQNNNE")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C5") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C6") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C7") (value "100nF 50V C0G") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "C0805C104J5GAC7800")) (property (name "Manufacturer") (value "KEMET")))
-    (comp (ref "C8") (value "100nF 50V C0G") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "C0805C104J5GAC7800")) (property (name "Manufacturer") (value "KEMET")))
-    (comp (ref "C9") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C10") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C11") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "C12") (value "100nF 50V X7R") (footprint "Capacitor_SMD:C_0805_2012Metric") (property (name "MPN") (value "CL21B104KBCNNNC")) (property (name "Manufacturer") (value "Samsung")))
-    (comp (ref "D11") (value "LED_RED_ALARM") (footprint "LED_SMD:LED_0805_2012Metric") (property (name "MPN") (value "APT2012EC")) (property (name "Manufacturer") (value "Kingbright")))
-    (comp (ref "D12") (value "LED_CYAN_STATUS") (footprint "LED_SMD:LED_0805_2012Metric") (property (name "MPN") (value "APT2012QBC/D")) (property (name "Manufacturer") (value "Kingbright")))
-  )
-  (nets
-    (net (code "1") (name "GND")
-      (node (ref "U1") (pin "GND"))
-      (node (ref "U2") (pin "GND"))
-      (node (ref "U3") (pin "1"))
-      (node (ref "U3") (pin "2"))
-      (node (ref "U3") (pin "7"))
-      (node (ref "U4") (pin "6"))
-      (node (ref "U4") (pin "7"))
-      (node (ref "U4") (pin "8"))
-      (node (ref "U5") (pin "2"))
-      (node (ref "U6") (pin "2"))
-      (node (ref "J1") (pin "2"))
-      (node (ref "J2") (pin "2"))
-      (node (ref "J3") (pin "1"))
-      (node (ref "J4") (pin "A1"))
-      (node (ref "J6") (pin "2"))
-      (node (ref "J6") (pin "4"))
-      (node (ref "J6") (pin "6"))
-      (node (ref "J6") (pin "8"))
-      (node (ref "SW1") (pin "2"))
-      (node (ref "Q1") (pin "2"))
-      (node (ref "D1") (pin "A"))
-      (node (ref "D2") (pin "A"))
-      (node (ref "D3") (pin "A"))
-      (node (ref "D4") (pin "A"))
-      (node (ref "D5") (pin "A"))
-      (node (ref "D6") (pin "A"))
-      (node (ref "D7") (pin "A"))
-      (node (ref "D8") (pin "1"))
-      (node (ref "D9") (pin "1"))
-      (node (ref "D10") (pin "1"))
-      (node (ref "C2") (pin "2"))
-      (node (ref "C3") (pin "2"))
-      (node (ref "C4") (pin "2"))
-      (node (ref "C5") (pin "2"))
-      (node (ref "C6") (pin "2"))
-      (node (ref "C9") (pin "2"))
-      (node (ref "C10") (pin "2"))
-      (node (ref "C11") (pin "2"))
-      (node (ref "C12") (pin "2"))
-      (node (ref "D11") (pin "K"))
-      (node (ref "D12") (pin "K"))
-    )
-    (net (code "2") (name "3V3")
-      (node (ref "U1") (pin "3V3"))
-      (node (ref "U2") (pin "VOUT"))
-      (node (ref "U2") (pin "TAB"))
-      (node (ref "U3") (pin "6"))
-      (node (ref "U4") (pin "16"))
-      (node (ref "U5") (pin "5"))
-      (node (ref "LS1") (pin "1"))
-      (node (ref "D8") (pin "2"))
-      (node (ref "D9") (pin "2"))
-      (node (ref "D10") (pin "2"))
-      (node (ref "R15") (pin "1"))
-      (node (ref "R16") (pin "1"))
-      (node (ref "R17") (pin "1"))
-      (node (ref "R18") (pin "1"))
-      (node (ref "R19") (pin "1"))
-      (node (ref "R20") (pin "1"))
-      (node (ref "R21") (pin "1"))
-      (node (ref "R22") (pin "1"))
-      (node (ref "C2") (pin "1"))
-      (node (ref "C4") (pin "1"))
-      (node (ref "C5") (pin "1"))
-      (node (ref "C6") (pin "1"))
-    )
-    (net (code "3") (name "MUX_OUT")
-      (node (ref "U1") (pin "GPIO36"))
-      (node (ref "U5") (pin "1"))
-      (node (ref "U5") (pin "4"))
-    )
-    (net (code "4") (name "NTC0")
-      (node (ref "U1") (pin "GPIO39"))
-      (node (ref "J6") (pin "1"))
-      (node (ref "R18") (pin "2"))
-      (node (ref "C9") (pin "1"))
-    )
-    (net (code "5") (name "NTC1")
-      (node (ref "U1") (pin "GPIO34"))
-      (node (ref "J6") (pin "3"))
-      (node (ref "R19") (pin "2"))
-      (node (ref "C10") (pin "1"))
-    )
-    (net (code "6") (name "NTC2")
-      (node (ref "U1") (pin "GPIO35"))
-      (node (ref "J6") (pin "5"))
-      (node (ref "R20") (pin "2"))
-      (node (ref "C11") (pin "1"))
-    )
-    (net (code "7") (name "NTC3")
-      (node (ref "U1") (pin "GPIO32"))
-      (node (ref "J6") (pin "7"))
-      (node (ref "R21") (pin "2"))
-      (node (ref "C12") (pin "1"))
-    )
-    (net (code "8") (name "I2C_SDA")
-      (node (ref "U1") (pin "GPIO21"))
-      (node (ref "U3") (pin "4"))
-      (node (ref "R15") (pin "2"))
-    )
-    (net (code "9") (name "I2C_SCL")
-      (node (ref "U1") (pin "GPIO22"))
-      (node (ref "U3") (pin "5"))
-      (node (ref "R16") (pin "2"))
-    )
-    (net (code "10") (name "INA_ALERT")
-      (node (ref "U1") (pin "GPIO16"))
-      (node (ref "U3") (pin "3"))
-      (node (ref "R17") (pin "2"))
-    )
-    (net (code "11") (name "MUX_S0")
-      (node (ref "U1") (pin "GPIO25"))
-      (node (ref "U4") (pin "11"))
-    )
-    (net (code "12") (name "MUX_S1")
-      (node (ref "U1") (pin "GPIO26"))
-      (node (ref "U4") (pin "10"))
-    )
-    (net (code "13") (name "MUX_S2")
-      (node (ref "U1") (pin "GPIO27"))
-      (node (ref "U4") (pin "9"))
-    )
-    (net (code "14") (name "LED_ALARM")
-      (node (ref "U1") (pin "GPIO17"))
-      (node (ref "R23") (pin "1"))
-    )
-    (net (code "15") (name "LED_STAT")
-      (node (ref "U1") (pin "GPIO18"))
-      (node (ref "R24") (pin "1"))
-    )
-    (net (code "16") (name "VUSB_5V")
-      (node (ref "U2") (pin "VIN"))
-      (node (ref "J4") (pin "A4"))
-      (node (ref "C3") (pin "1"))
-    )
-    (net (code "17") (name "VBUS_SENSE")
-      (node (ref "U3") (pin "8"))
-      (node (ref "F7") (pin "2"))
-      (node (ref "D7") (pin "K"))
-    )
-    (net (code "18") (name "SHUNT_N_FILT")
-      (node (ref "U3") (pin "9"))
-      (node (ref "R14") (pin "2"))
-      (node (ref "C1") (pin "2"))
-    )
-    (net (code "19") (name "SHUNT_P_FILT")
-      (node (ref "U3") (pin "10"))
-      (node (ref "R13") (pin "2"))
-      (node (ref "C1") (pin "1"))
-    )
-    (net (code "20") (name "DIV_B5")
-      (node (ref "U4") (pin "1"))
-      (node (ref "D10") (pin "3"))
-      (node (ref "R9") (pin "2"))
-      (node (ref "R10") (pin "1"))
-    )
-    (net (code "21") (name "DIV_B6")
-      (node (ref "U4") (pin "2"))
-      (node (ref "R11") (pin "2"))
-      (node (ref "R12") (pin "1"))
-    )
-    (net (code "22") (name "MUX_COM")
-      (node (ref "U4") (pin "3"))
-      (node (ref "U5") (pin "3"))
-    )
-    (net (code "23") (name "AGND")
-      (node (ref "U4") (pin "4"))
-      (node (ref "R2") (pin "2"))
-      (node (ref "R4") (pin "2"))
-      (node (ref "R6") (pin "2"))
-      (node (ref "R8") (pin "2"))
-      (node (ref "R10") (pin "2"))
-      (node (ref "R12") (pin "2"))
-      (node (ref "C7") (pin "2"))
-      (node (ref "C8") (pin "2"))
-    )
-    (net (code "24") (name "VREF_2V048")
-      (node (ref "U4") (pin "5"))
-      (node (ref "U6") (pin "1"))
-      (node (ref "R22") (pin "2"))
-    )
-    (net (code "25") (name "DIV_B4")
-      (node (ref "U4") (pin "12"))
-      (node (ref "R7") (pin "2"))
-      (node (ref "R8") (pin "1"))
-      (node (ref "C8") (pin "1"))
-    )
-    (net (code "26") (name "DIV_B1")
-      (node (ref "U4") (pin "13"))
-      (node (ref "D8") (pin "3"))
-      (node (ref "R1") (pin "2"))
-      (node (ref "R2") (pin "1"))
-      (node (ref "C7") (pin "1"))
-    )
-    (net (code "27") (name "DIV_B2")
-      (node (ref "U4") (pin "14"))
-      (node (ref "R3") (pin "2"))
-      (node (ref "R4") (pin "1"))
-    )
-    (net (code "28") (name "DIV_B3")
-      (node (ref "U4") (pin "15"))
-      (node (ref "D9") (pin "3"))
-      (node (ref "R5") (pin "2"))
-      (node (ref "R6") (pin "1"))
-    )
-    (net (code "29") (name "NC")
-      (node (ref "U6") (pin "3"))
-    )
-    (net (code "30") (name "PACK_POS_IN")
-      (node (ref "R_SHUNT") (pin "1"))
-      (node (ref "J1") (pin "1"))
-    )
-    (net (code "31") (name "LOAD_POS_OUT")
-      (node (ref "R_SHUNT") (pin "2"))
-      (node (ref "J2") (pin "1"))
-      (node (ref "F7") (pin "1"))
-    )
-    (net (code "32") (name "SHUNT_SENSE_P")
-      (node (ref "R_SHUNT") (pin "3"))
-      (node (ref "R13") (pin "1"))
-    )
-    (net (code "33") (name "SHUNT_SENSE_N")
-      (node (ref "R_SHUNT") (pin "4"))
-      (node (ref "R14") (pin "1"))
-    )
-    (net (code "34") (name "TAP_B1_RAW")
-      (node (ref "J3") (pin "2"))
-      (node (ref "F1") (pin "1"))
-    )
-    (net (code "35") (name "TAP_B2_RAW")
-      (node (ref "J3") (pin "3"))
-      (node (ref "F2") (pin "1"))
-    )
-    (net (code "36") (name "TAP_B3_RAW")
-      (node (ref "J3") (pin "4"))
-      (node (ref "F3") (pin "1"))
-    )
-    (net (code "37") (name "TAP_B4_RAW")
-      (node (ref "J3") (pin "5"))
-      (node (ref "F4") (pin "1"))
-    )
-    (net (code "38") (name "TAP_B5_RAW")
-      (node (ref "J3") (pin "6"))
-      (node (ref "F5") (pin "1"))
-    )
-    (net (code "39") (name "TAP_B6_RAW")
-      (node (ref "J3") (pin "7"))
-      (node (ref "F6") (pin "1"))
-    )
-    (net (code "40") (name "GPIO4")
-      (node (ref "SW1") (pin "1"))
-    )
-    (net (code "41") (name "GPIO19")
-      (node (ref "Q1") (pin "1"))
-    )
-    (net (code "42") (name "BZ_N")
-      (node (ref "Q1") (pin "3"))
-      (node (ref "LS1") (pin "2"))
-    )
-    (net (code "43") (name "TAP_B1_FUSED")
-      (node (ref "F1") (pin "2"))
-      (node (ref "D1") (pin "K"))
-      (node (ref "R1") (pin "1"))
-    )
-    (net (code "44") (name "TAP_B2_FUSED")
-      (node (ref "F2") (pin "2"))
-      (node (ref "D2") (pin "K"))
-      (node (ref "R3") (pin "1"))
-    )
-    (net (code "45") (name "TAP_B3_FUSED")
-      (node (ref "F3") (pin "2"))
-      (node (ref "D3") (pin "K"))
-      (node (ref "R5") (pin "1"))
-    )
-    (net (code "46") (name "TAP_B4_FUSED")
-      (node (ref "F4") (pin "2"))
-      (node (ref "D4") (pin "K"))
-      (node (ref "R7") (pin "1"))
-    )
-    (net (code "47") (name "TAP_B5_FUSED")
-      (node (ref "F5") (pin "2"))
-      (node (ref "D5") (pin "K"))
-      (node (ref "R9") (pin "1"))
-    )
-    (net (code "48") (name "TAP_B6_FUSED")
-      (node (ref "F6") (pin "2"))
-      (node (ref "D6") (pin "K"))
-      (node (ref "R11") (pin "1"))
-    )
-    (net (code "49") (name "LED_A_K")
-      (node (ref "R23") (pin "2"))
-      (node (ref "D11") (pin "A"))
-    )
-    (net (code "50") (name "LED_S_K")
-      (node (ref "R24") (pin "2"))
-      (node (ref "D12") (pin "A"))
-    )
-  )
+(export
+	(version "E")
+	(design
+		(source "S:\\Projects\\Multi projects\\ENGINEERING-PORTFOLIO\\06-CELLGUARD\\hardware\\cellguard.kicad_sch")
+		(date "2026-11-18T18:51:51")
+		(tool "Eeschema 10.0.8")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title "CellGuard 21700 Pack Telemetry & Health Monitor (1S-6S Non-Invasive)")
+				(company "Jagjyot Engineering Portfolio")
+				(rev "1.1")
+				(date "2026-11-18")
+				(source "cellguard.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "C1")
+			(value "100nF_C0G")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C1_100nF_C0G")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6cbe9926-ec21-5005-babf-2851e99a652e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C2")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C2_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ad9834ea-a361-50f8-a3d6-383e301bc207")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C3")
+			(value "10uF_16V")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C3_10uF_16V")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "3e46a7f4-b6fa-5b94-82b3-04e6621e9d68")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C4")
+			(value "22uF_10V")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C4_22uF_10V")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ee4e72d5-7489-50b3-a71e-f314ca4c5208")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C5")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C5_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "bc4f26fb-6480-5fc5-8ab5-43f477684a00")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C6")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C6_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "419cd8bd-20d8-5cac-a8f8-827253e1db44")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C7")
+			(value "100nF_C0G")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C7_100nF_C0G")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b1c87bd9-2f01-5330-9bf0-e3312bf2de03")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C8")
+			(value "100nF_C0G")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C8_100nF_C0G")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d148f405-caf1-5278-8361-e545514fcc34")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C9")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C9_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0ee99334-0e04-5834-8cad-af97610bd6f1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C10")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C10_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4b8507bc-9c94-5fc2-9eb0-5cbc51bbeb12")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C11")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C11_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "528fbc67-272d-596b-9b6e-c56158b6d33a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "C12")
+			(value "100nF_X7R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_C12_100nF_X7R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "59066d9b-14a6-5b79-ba89-29a582631c71")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D1")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D1_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "7a333ffc-cd0f-5c27-aada-fdd1f3e0b544")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D2")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D2_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "772f58b0-01eb-5f10-80e7-7d2664bbec02")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D3")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D3_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "eab99bc1-0177-5232-9f8a-fbc2cf70fd73")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D4")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D4_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a7722d82-0a3f-5dd9-98d8-dbb7d5358ba3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D5")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D5_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4dfbb13f-cd49-5815-a73b-7fcaae9fbe1b")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D6")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D6_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "bead2c38-b1bc-5ece-a9e8-59093fcf3daa")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D7")
+			(value "SMAJ28A")
+			(footprint "CellGuard:D_SMA")
+			(fields
+				(field
+					(name "MPN") "SMAJ28A")
+				(field
+					(name "Rating") "28V TVS")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D7_SMAJ28A")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "SMAJ28A")
+			)
+			(property
+				(name "Rating")
+				(value "28V TVS")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "a4f44c56-0477-59c2-9bd7-db8063f12631")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D8")
+			(value "BAT54S")
+			(footprint "CellGuard:SOT-23")
+			(fields
+				(field
+					(name "MPN") "BAT54S")
+				(field
+					(name "Rating") "30V Clamp")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D8_BAT54S")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "BAT54S")
+			)
+			(property
+				(name "Rating")
+				(value "30V Clamp")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d2f72da6-bd7b-52c3-8c22-ac961e6d0f3c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D9")
+			(value "BAT54S")
+			(footprint "CellGuard:SOT-23")
+			(fields
+				(field
+					(name "MPN") "BAT54S")
+				(field
+					(name "Rating") "30V Clamp")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D9_BAT54S")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "BAT54S")
+			)
+			(property
+				(name "Rating")
+				(value "30V Clamp")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8848c619-6099-54d4-869d-d6bd6c9e244c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D10")
+			(value "BAT54S")
+			(footprint "CellGuard:SOT-23")
+			(fields
+				(field
+					(name "MPN") "BAT54S")
+				(field
+					(name "Rating") "30V Clamp")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D10_BAT54S")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "BAT54S")
+			)
+			(property
+				(name "Rating")
+				(value "30V Clamp")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "cb390996-4fab-5de0-996a-12ca04aa310e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D11")
+			(value "LED_RED_ALARM")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "2.0V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D11_LED_RED_ALARM")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "2.0V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "032117f6-1b21-5d80-98c8-9449fd043002")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "D12")
+			(value "LED_CYAN_STATUS")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "3.0V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_D12_LED_CYAN_STATUS")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "3.0V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "67a5869f-0ee0-560f-b6b8-10ee983406f9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F1")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F1_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8d316df3-e370-5802-8ca4-4ee40b631df3")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F2")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F2_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "757a9f6b-e183-572b-b28c-4461a3ecc7a0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F3")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F3_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "06a976e9-427c-55be-bebf-237f3100a2b9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F4")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F4_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b5ec22f7-8258-5528-af11-12005728e8a6")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F5")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F5_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0c46571c-526b-5b6b-a312-6146a790862a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F6")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F6_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "9a5fadb1-8a34-5ccc-ba01-6fbf0e191ca1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "F7")
+			(value "100mA_PPTC")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "MPN") "0805L010YR")
+				(field
+					(name "Rating") "60V / 100mA")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_F7_100mA_PPTC")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "0805L010YR")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 100mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "42884592-ad21-5ff5-af74-2930540726d8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H1")
+			(value "M3_Mount")
+			(footprint "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+			(fields
+				(field
+					(name "Rating") "M3")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_H1_M3_Mount")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "M3")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "dad1f1f0-0de2-54b0-8b21-7d0563f7d9da")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H2")
+			(value "M3_Mount")
+			(footprint "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+			(fields
+				(field
+					(name "Rating") "M3")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_H2_M3_Mount")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "M3")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b8166322-f712-53d0-93c3-5142cfc3cb45")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H3")
+			(value "M3_Mount")
+			(footprint "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+			(fields
+				(field
+					(name "Rating") "M3")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_H3_M3_Mount")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "M3")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "94dd4535-deb6-5d0c-b79e-f22870c24612")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "H4")
+			(value "M3_Mount")
+			(footprint "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+			(fields
+				(field
+					(name "Rating") "M3")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_H4_M3_Mount")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "M3")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "911475bd-795a-5cd9-8307-0f43b49057d7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J1")
+			(value "PACK_POS_IN (XT60)")
+			(footprint "CellGuard:AMASS_XT60_Vertical")
+			(fields
+				(field
+					(name "MPN") "XT60PW-M")
+				(field
+					(name "Rating") "60A / 28V")
+				(field
+					(name "Footprint") "CellGuard:AMASS_XT60_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_J1_PACK_POS_IN_XT60")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "XT60PW-M")
+			)
+			(property
+				(name "Rating")
+				(value "60A / 28V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "257e3d27-0de7-551e-8b6b-116ec749df7f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J2")
+			(value "LOAD_POS_OUT (XT60)")
+			(footprint "CellGuard:AMASS_XT60_Vertical")
+			(fields
+				(field
+					(name "MPN") "XT60PW-F")
+				(field
+					(name "Rating") "60A / 28V")
+				(field
+					(name "Footprint") "CellGuard:AMASS_XT60_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_J2_LOAD_POS_OUT_XT60")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "XT60PW-F")
+			)
+			(property
+				(name "Rating")
+				(value "60A / 28V")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5c360a88-b508-54f6-ba01-55b60d247a67")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J3")
+			(value "CELL_TAPS_1S-6S")
+			(footprint "CellGuard:PinHeader_1x07_P2.54mm")
+			(fields
+				(field
+					(name "MPN") "B7B-XH-A")
+				(field
+					(name "Manufacturer") "JST")
+				(field
+					(name "Rating") "28V / 1A Sense")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x07_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_J3_CELL_TAPS_1S_6S")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "B7B-XH-A")
+			)
+			(property
+				(name "Manufacturer")
+				(value "JST")
+			)
+			(property
+				(name "Rating")
+				(value "28V / 1A Sense")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "194e7f75-ef81-55de-b342-5d4b5cd7716d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J4")
+			(value "USB-C_UART_5V")
+			(footprint "CellGuard:PinHeader_1x04_P2.54mm")
+			(fields
+				(field
+					(name "MPN") "USB-C-UART-4P")
+				(field
+					(name "Rating") "5V / 1A")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x04_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_J4_USB_C_UART_5V")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "USB-C-UART-4P")
+			)
+			(property
+				(name "Rating")
+				(value "5V / 1A")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "1bffb21e-ce22-5347-a8ee-a187bc49be02")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "J6")
+			(value "NTC_ARRAY_4CH")
+			(footprint "CellGuard:PinHeader_1x08_H_P2.54mm")
+			(fields
+				(field
+					(name "MPN") "B8B-XH-A")
+				(field
+					(name "Manufacturer") "JST")
+				(field
+					(name "Rating") "3.3V NTC")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x08_H_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_J6_NTC_ARRAY_4CH")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "B8B-XH-A")
+			)
+			(property
+				(name "Manufacturer")
+				(value "JST")
+			)
+			(property
+				(name "Rating")
+				(value "3.3V NTC")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "06f9828a-416a-5226-8d31-b0bdb98e5f34")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "LS1")
+			(value "Piezo_Alert_3V3")
+			(footprint "CellGuard:PinHeader_1x02_P2.54mm")
+			(fields
+				(field
+					(name "MPN") "MLT-8530")
+				(field
+					(name "Rating") "3.3V Piezo")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x02_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_LS1_Piezo_Alert_3V3")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "MLT-8530")
+			)
+			(property
+				(name "Rating")
+				(value "3.3V Piezo")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "bbadf6d9-d331-54d3-bc1a-02ce0c22db34")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "Q1")
+			(value "2N7002")
+			(footprint "CellGuard:SOT-23")
+			(fields
+				(field
+					(name "MPN") "2N7002K")
+				(field
+					(name "Rating") "60V / 300mA")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_Q1_2N7002")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "2N7002K")
+			)
+			(property
+				(name "Rating")
+				(value "60V / 300mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "aaedd7d4-1236-5ff5-bc13-009318b1a2ae")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R1")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R1_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "ada79430-0079-591a-bf5a-01eb971b160e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R2")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R2_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "49555877-8b37-59ee-8f2e-55945ad507a2")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R3")
+			(value "300k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R3_300k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "85b55107-075a-5bef-a261-547fcf66c2f9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R4")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R4_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5066e46e-583e-5148-9158-f04e4d05c3e4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R5")
+			(value "499k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R5_499k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "7269fe16-eb37-5f67-9b88-2e0150b312ce")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R6")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R6_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "aaa390b7-a254-57cf-95ed-bfca6bd73774")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R7")
+			(value "680k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R7_680k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "381b95d4-1540-5265-ad25-6bf1ae5849bf")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R8")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R8_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "bd666e5e-f501-56f3-86f0-e67a5e4bf426")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R9")
+			(value "820k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R9_820k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "8eecc3ba-ffc6-5014-921d-d6ae534cdcff")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R10")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R10_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "f18f9fac-b377-58c4-ad1f-c60766fd8f7d")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R11")
+			(value "1.00M_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R11_1_00M_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "4574c959-b667-5a1c-a456-88409578079e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R12")
+			(value "100k_0.1%")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R12_100k_0_1")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0.1%")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "13f9dbb4-9554-5c18-bd25-388acf497193")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R13")
+			(value "10R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R13_10R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b8873c3b-6a46-5bd5-ae7d-07dc3f2a49e5")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R14")
+			(value "10R")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R14_10R")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d283e3de-7644-5d06-bd3e-879b0632f60b")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R15")
+			(value "4.7k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R15_4_7k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "498477da-3af4-5461-bc8f-404baf7f76d1")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R16")
+			(value "4.7k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R16_4_7k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "6e3720e1-3b90-587e-a00a-2bee0832b882")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R17")
+			(value "10k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R17_10k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c2176c15-ee4d-55cf-8a06-81c9ce62d9c6")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R18")
+			(value "10k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R18_10k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b8502071-b145-5325-82d6-342916637a0a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R19")
+			(value "10k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R19_10k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "764b8f8d-c22c-5470-a11a-ca9f10e770c0")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R20")
+			(value "10k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R20_10k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "9aea4ab5-c847-530d-9154-332b2e3fd2c4")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R21")
+			(value "10k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R21_10k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b1b0b2e5-adfb-5eb5-9489-eed635e484c7")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R22")
+			(value "1.0k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R22_1_0k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "7b35966b-2054-5812-aa96-19aa41415ecd")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R23")
+			(value "1.0k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R23_1_0k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "efec6459-121b-5596-9269-45e8a684b25f")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R24")
+			(value "1.0k")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "50V / 0.125W")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R24_1_0k")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "50V / 0.125W")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "311b4b3f-5b18-54b9-8c44-f0d80657a97c")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_AGND")
+			(value "0R_Star_Tie")
+			(footprint "CellGuard:SMD_0805")
+			(fields
+				(field
+					(name "Rating") "0R Star Bridge")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R_AGND_0R_Star_Tie")
+				(description "")
+			)
+			(property
+				(name "Rating")
+				(value "0R Star Bridge")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "72004caa-8c60-55e5-b90d-ecd206e6d832")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R_SHUNT")
+			(value "1.0mOhm 5W Kelvin")
+			(footprint "CellGuard:R_Shunt_4Wire_CSS4J_4026")
+			(fields
+				(field
+					(name "MPN") "CSS4J-4026R-1L00F")
+				(field
+					(name "Manufacturer") "Bourns")
+				(field
+					(name "Rating") "1mOhm / 5W Kelvin")
+				(field
+					(name "Footprint") "CellGuard:R_Shunt_4Wire_CSS4J_4026")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_R_SHUNT_1_0mOhm_5W_Kelvin")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "CSS4J-4026R-1L00F")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Bourns")
+			)
+			(property
+				(name "Rating")
+				(value "1mOhm / 5W Kelvin")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "5330a19c-de90-5585-8ef8-78e8d91cf7eb")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "SW1")
+			(value "CAL_MUTE_BTN")
+			(footprint "CellGuard:SW_SPST_SMD")
+			(fields
+				(field
+					(name "MPN") "TL3342F160QG")
+				(field
+					(name "Rating") "12V / 50mA")
+				(field
+					(name "Footprint") "CellGuard:SW_SPST_SMD")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_SW1_CAL_MUTE_BTN")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "TL3342F160QG")
+			)
+			(property
+				(name "Rating")
+				(value "12V / 50mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "da8e933d-152e-5a17-b90f-d6d7024dc486")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U1")
+			(value "ESP32-DevKitC-32E")
+			(footprint "CellGuard:ESP32_DevKitC_30P")
+			(fields
+				(field
+					(name "MPN") "ESP32-WROOM-32E-N4")
+				(field
+					(name "Manufacturer") "Espressif")
+				(field
+					(name "Rating") "3.3V IO / 5V USB")
+				(field
+					(name "Footprint") "CellGuard:ESP32_DevKitC_30P")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U1_ESP32_DevKitC_32E")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "ESP32-WROOM-32E-N4")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Espressif")
+			)
+			(property
+				(name "Rating")
+				(value "3.3V IO / 5V USB")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "eea50677-e28e-56cf-99a6-12e2568e9a80")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "17")
+						)
+						(pin
+							(num "18")
+						)
+						(pin
+							(num "19")
+						)
+						(pin
+							(num "20")
+						)
+						(pin
+							(num "21")
+						)
+						(pin
+							(num "22")
+						)
+						(pin
+							(num "23")
+						)
+						(pin
+							(num "24")
+						)
+						(pin
+							(num "25")
+						)
+						(pin
+							(num "26")
+						)
+						(pin
+							(num "27")
+						)
+						(pin
+							(num "28")
+						)
+						(pin
+							(num "29")
+						)
+						(pin
+							(num "30")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U2")
+			(value "AMS1117-3.3")
+			(footprint "CellGuard:SOT-223-3_TabPin2")
+			(fields
+				(field
+					(name "MPN") "AMS1117-3.3")
+				(field
+					(name "Manufacturer") "AMS")
+				(field
+					(name "Rating") "3.3V / 800mA")
+				(field
+					(name "Footprint") "CellGuard:SOT-223-3_TabPin2")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U2_AMS1117_3_3")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "AMS1117-3.3")
+			)
+			(property
+				(name "Manufacturer")
+				(value "AMS")
+			)
+			(property
+				(name "Rating")
+				(value "3.3V / 800mA")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "2aa5ed93-d432-501a-9624-70591361de04")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U3")
+			(value "INA226AIDGSR")
+			(footprint "CellGuard:VSSOP-10_3x3mm_P0.5mm_R180")
+			(fields
+				(field
+					(name "MPN") "INA226AIDGSR")
+				(field
+					(name "Manufacturer") "Texas Instruments")
+				(field
+					(name "Rating") "36V / 16-bit I2C")
+				(field
+					(name "Footprint") "CellGuard:VSSOP-10_3x3mm_P0.5mm_R180")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U3_INA226AIDGSR")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "INA226AIDGSR")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Texas Instruments")
+			)
+			(property
+				(name "Rating")
+				(value "36V / 16-bit I2C")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "d4340de3-d01c-5992-9e7d-dfea1089b84e")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U4")
+			(value "CD74HC4051M")
+			(footprint "CellGuard:SOIC-16_3.9x9.9mm_P1.27mm")
+			(fields
+				(field
+					(name "MPN") "CD74HC4051M96")
+				(field
+					(name "Manufacturer") "Texas Instruments")
+				(field
+					(name "Rating") "8:1 Analog MUX")
+				(field
+					(name "Footprint") "CellGuard:SOIC-16_3.9x9.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U4_CD74HC4051M")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "CD74HC4051M96")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Texas Instruments")
+			)
+			(property
+				(name "Rating")
+				(value "8:1 Analog MUX")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "be9888e5-4fce-5d36-98d4-eb66ba5eeb43")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "16")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U5")
+			(value "MCP6001T-I/OT")
+			(footprint "CellGuard:SOT-23-5")
+			(fields
+				(field
+					(name "MPN") "MCP6001T-I/OT")
+				(field
+					(name "Manufacturer") "Microchip")
+				(field
+					(name "Rating") "3.3V RRIO Buffer")
+				(field
+					(name "Footprint") "CellGuard:SOT-23-5")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U5_MCP6001T_I_OT")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "MCP6001T-I/OT")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Microchip")
+			)
+			(property
+				(name "Rating")
+				(value "3.3V RRIO Buffer")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "0b0db0b4-c168-5f29-b0bd-c11fab2b9b27")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "5")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "U6")
+			(value "LM4040AIM3-2.0")
+			(footprint "CellGuard:SOT-23")
+			(fields
+				(field
+					(name "MPN") "LM4040AIM3-2.0/NOPB")
+				(field
+					(name "Manufacturer") "Texas Instruments")
+				(field
+					(name "Rating") "2.048V 0.1% Ref")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(libsource
+				(lib "CellGuard")
+				(part "SYM_U6_LM4040AIM3_2_0")
+				(description "")
+			)
+			(property
+				(name "MPN")
+				(value "LM4040AIM3-2.0/NOPB")
+			)
+			(property
+				(name "Manufacturer")
+				(value "Texas Instruments")
+			)
+			(property
+				(name "Rating")
+				(value "2.048V 0.1% Ref")
+			)
+			(property
+				(name "Sheetname")
+				(value "cellguard")
+			)
+			(property
+				(name "Sheetfile")
+				(value "cellguard.kicad_sch")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "cdb11451-bac5-5c9a-8607-c8d05c54c31a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C10_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C11_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C12_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C1_100nF_C0G")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_C0G")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C2_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C3_10uF_16V")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "10uF_16V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C4_22uF_10V")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "22uF_10V")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C5_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C6_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C7_100nF_C0G")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_C0G")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C8_100nF_C0G")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_C0G")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_C9_100nF_X7R")
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "100nF_X7R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D10_BAT54S")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "BAT54S")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "COM")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D11_LED_RED_ALARM")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "LED_RED_ALARM")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "K")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D12_LED_CYAN_STATUS")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "LED_CYAN_STATUS")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "K")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D1_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D2_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D3_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D4_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D5_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D6_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D7_SMAJ28A")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "SMAJ28A")
+				(field
+					(name "Footprint") "CellGuard:D_SMA")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D8_BAT54S")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "BAT54S")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "COM")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_D9_BAT54S")
+			(fields
+				(field
+					(name "Reference") "D")
+				(field
+					(name "Value") "BAT54S")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "COM")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F1_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F2_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F3_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F4_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F5_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F6_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_F7_100mA_PPTC")
+			(fields
+				(field
+					(name "Reference") "F")
+				(field
+					(name "Value") "100mA_PPTC")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_H1_M3_Mount")
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "M3_Mount")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_H2_M3_Mount")
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "M3_Mount")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_H3_M3_Mount")
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "M3_Mount")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_H4_M3_Mount")
+			(fields
+				(field
+					(name "Reference") "H")
+				(field
+					(name "Value") "M3_Mount")
+				(field
+					(name "Footprint") "CellGuard:MountingHole_3.2mm_M3_Pad_Via")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_J1_PACK_POS_IN_XT60")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "PACK_POS_IN (XT60)")
+				(field
+					(name "Footprint") "CellGuard:AMASS_XT60_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "PACK+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_J2_LOAD_POS_OUT_XT60")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "LOAD_POS_OUT (XT60)")
+				(field
+					(name "Footprint") "CellGuard:AMASS_XT60_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "LOAD+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_J3_CELL_TAPS_1S_6S")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "CELL_TAPS_1S-6S")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x07_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "B0_GND")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "B1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "B2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "B3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "B4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "B5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "B6")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_J4_USB_C_UART_5V")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "USB-C_UART_5V")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x04_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VBUS")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "GND")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "TX")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "RX")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_J6_NTC_ARRAY_4CH")
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "NTC_ARRAY_4CH")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x08_H_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "NTC0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "GND0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "NTC1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "GND1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "NTC2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "GND2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "NTC3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "GND3")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_LS1_Piezo_Alert_3V3")
+			(fields
+				(field
+					(name "Reference") "LS")
+				(field
+					(name "Value") "Piezo_Alert_3V3")
+				(field
+					(name "Footprint") "CellGuard:PinHeader_1x02_P2.54mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "-")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_Q1_2N7002")
+			(fields
+				(field
+					(name "Reference") "Q")
+				(field
+					(name "Value") "2N7002")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "G")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "S")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "D")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R10_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R11_1_00M_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "1.00M_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R12_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R13_10R")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R14_10R")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10R")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R15_4_7k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "4.7k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R16_4_7k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "4.7k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R17_10k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R18_10k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R19_10k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R1_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R20_10k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R21_10k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "10k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R22_1_0k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "1.0k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R23_1_0k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "1.0k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R24_1_0k")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "1.0k")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R2_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R3_300k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "300k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R4_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R5_499k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "499k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R6_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R7_680k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "680k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R8_100k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "100k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R9_820k_0_1")
+			(fields
+				(field
+					(name "Reference") "R")
+				(field
+					(name "Value") "820k_0.1%")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R_AGND_0R_Star_Tie")
+			(fields
+				(field
+					(name "Reference") "R_AGND")
+				(field
+					(name "Value") "0R_Star_Tie")
+				(field
+					(name "Footprint") "CellGuard:SMD_0805")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_R_SHUNT_1_0mOhm_5W_Kelvin")
+			(fields
+				(field
+					(name "Reference") "R_SHUNT")
+				(field
+					(name "Value") "1.0mOhm 5W Kelvin")
+				(field
+					(name "Footprint") "CellGuard:R_Shunt_4Wire_CSS4J_4026")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "I+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "I-")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "S+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "S-")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_SW1_CAL_MUTE_BTN")
+			(fields
+				(field
+					(name "Reference") "SW")
+				(field
+					(name "Value") "CAL_MUTE_BTN")
+				(field
+					(name "Footprint") "CellGuard:SW_SPST_SMD")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "2")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U1_ESP32_DevKitC_32E")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "ESP32-DevKitC-32E")
+				(field
+					(name "Footprint") "CellGuard:ESP32_DevKitC_30P")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "EN")
+					(type "no_connect")
+				)
+				(pin
+					(num "2")
+					(name "VP/GPIO36")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "VN/GPIO39")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "D34/GPIO34")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "D35/GPIO35")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "D32/GPIO32")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "D33/GPIO33")
+					(type "no_connect")
+				)
+				(pin
+					(num "8")
+					(name "D25/GPIO25")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "D26/GPIO26")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "D27/GPIO27")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "D14/GPIO14")
+					(type "no_connect")
+				)
+				(pin
+					(num "12")
+					(name "D12/GPIO12")
+					(type "no_connect")
+				)
+				(pin
+					(num "13")
+					(name "D13/GPIO13")
+					(type "no_connect")
+				)
+				(pin
+					(num "14")
+					(name "GND1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "VUSB_5V")
+					(type "bidirectional")
+				)
+				(pin
+					(num "16")
+					(name "3V3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "17")
+					(name "GND2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "18")
+					(name "D15/GPIO15")
+					(type "no_connect")
+				)
+				(pin
+					(num "19")
+					(name "D2/GPIO2")
+					(type "no_connect")
+				)
+				(pin
+					(num "20")
+					(name "D4/GPIO4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "21")
+					(name "D16/GPIO16")
+					(type "bidirectional")
+				)
+				(pin
+					(num "22")
+					(name "D17/GPIO17")
+					(type "bidirectional")
+				)
+				(pin
+					(num "23")
+					(name "D5/GPIO5")
+					(type "no_connect")
+				)
+				(pin
+					(num "24")
+					(name "D18/GPIO18")
+					(type "bidirectional")
+				)
+				(pin
+					(num "25")
+					(name "D19/GPIO19")
+					(type "bidirectional")
+				)
+				(pin
+					(num "26")
+					(name "D21/GPIO21")
+					(type "bidirectional")
+				)
+				(pin
+					(num "27")
+					(name "RX0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "28")
+					(name "TX0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "29")
+					(name "D22/GPIO22")
+					(type "bidirectional")
+				)
+				(pin
+					(num "30")
+					(name "D23/GPIO23")
+					(type "no_connect")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U2_AMS1117_3_3")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "AMS1117-3.3")
+				(field
+					(name "Footprint") "CellGuard:SOT-223-3_TabPin2")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "GND")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "VOUT")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "VIN")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U3_INA226AIDGSR")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "INA226AIDGSR")
+				(field
+					(name "Footprint") "CellGuard:VSSOP-10_3x3mm_P0.5mm_R180")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "A1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "ALERT")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "SDA")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "SCL")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "VS")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "GND")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "VBUS")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "IN-")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "IN+")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U4_CD74HC4051M")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "CD74HC4051M")
+				(field
+					(name "Footprint") "CellGuard:SOIC-16_3.9x9.9mm_P1.27mm")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "CH4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "CH6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "COM")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "CH7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "CH5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "INH")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "VEE")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "GND")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "S2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "S1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "S0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "12")
+					(name "CH3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "13")
+					(name "CH0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "14")
+					(name "CH1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "CH2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "16")
+					(name "VCC")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U5_MCP6001T_I_OT")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "MCP6001T-I/OT")
+				(field
+					(name "Footprint") "CellGuard:SOT-23-5")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "VOUT")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "VSS")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "IN+")
+					(type "bidirectional")
+				)
+				(pin
+					(num "4")
+					(name "IN-")
+					(type "bidirectional")
+				)
+				(pin
+					(num "5")
+					(name "VDD")
+					(type "bidirectional")
+				)
+			)
+		)
+		(libpart
+			(lib "CellGuard")
+			(part "SYM_U6_LM4040AIM3_2_0")
+			(fields
+				(field
+					(name "Reference") "U")
+				(field
+					(name "Value") "LM4040AIM3-2.0")
+				(field
+					(name "Footprint") "CellGuard:SOT-23")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description")
+				)
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "K")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "A")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "NC")
+					(type "no_connect")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "CellGuard")
+			(uri "${KIPRJMOD}/symbols/CellGuard.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "3V3")
+			(class "Default")
+			(node
+				(ref "C2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D10")
+				(pin "2")
+				(pinfunction "K_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D8")
+				(pin "2")
+				(pinfunction "K_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D9")
+				(pin "2")
+				(pinfunction "K_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "LS1")
+				(pin "1")
+				(pinfunction "+_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R15")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R16")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R17")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R18")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R19")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R20")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R21")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R22")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "16")
+				(pinfunction "3V3_16")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "2")
+				(pinfunction "VOUT_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "6")
+				(pinfunction "VS_6")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "16")
+				(pinfunction "VCC_16")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U5")
+				(pin "5")
+				(pinfunction "VDD_5")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "2")
+			(name "AGND")
+			(class "Default")
+			(node
+				(ref "C7")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C8")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R10")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R12")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R4")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R6")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R8")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_AGND")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "2")
+				(pinfunction "CH6_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "3")
+			(name "BZ_N")
+			(class "Default")
+			(node
+				(ref "LS1")
+				(pin "2")
+				(pinfunction "-_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Q1")
+				(pin "3")
+				(pinfunction "D_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "4")
+			(name "DIV_B1")
+			(class "Default")
+			(node
+				(ref "C7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D8")
+				(pin "3")
+				(pinfunction "COM_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "13")
+				(pinfunction "CH0_13")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "5")
+			(name "DIV_B2")
+			(class "Default")
+			(node
+				(ref "R3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "14")
+				(pinfunction "CH1_14")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "6")
+			(name "DIV_B3")
+			(class "Default")
+			(node
+				(ref "D9")
+				(pin "3")
+				(pinfunction "COM_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "15")
+				(pinfunction "CH2_15")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "7")
+			(name "DIV_B4")
+			(class "Default")
+			(node
+				(ref "C8")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R7")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R8")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "12")
+				(pinfunction "CH3_12")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "8")
+			(name "DIV_B5")
+			(class "Default")
+			(node
+				(ref "D10")
+				(pin "3")
+				(pinfunction "COM_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R10")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R9")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "1")
+				(pinfunction "CH4_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "9")
+			(name "DIV_B6")
+			(class "Default")
+			(node
+				(ref "R11")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R12")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "5")
+				(pinfunction "CH5_5")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "10")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "C10")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C11")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C12")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C4")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C6")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "C9")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D1")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D10")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D11")
+				(pin "2")
+				(pinfunction "K_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D12")
+				(pin "2")
+				(pinfunction "K_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D2")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D3")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D4")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D5")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D6")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D7")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D8")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "D9")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "H1")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "H2")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "H3")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "H4")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J1")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J2")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "1")
+				(pinfunction "B0_GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J4")
+				(pin "2")
+				(pinfunction "GND_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "2")
+				(pinfunction "GND0_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "4")
+				(pinfunction "GND1_4")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "6")
+				(pinfunction "GND2_6")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "8")
+				(pinfunction "GND3_8")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "Q1")
+				(pin "2")
+				(pinfunction "S_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_AGND")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "SW1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "14")
+				(pinfunction "GND1_14")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "17")
+				(pinfunction "GND2_17")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "1")
+				(pinfunction "GND_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "1")
+				(pinfunction "A1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "2")
+				(pinfunction "A0_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "7")
+				(pinfunction "GND_7")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "6")
+				(pinfunction "INH_6")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "7")
+				(pinfunction "VEE_7")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "8")
+				(pinfunction "GND_8")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U5")
+				(pin "2")
+				(pinfunction "VSS_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U6")
+				(pin "2")
+				(pinfunction "A_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "11")
+			(name "GPIO4")
+			(class "Default")
+			(node
+				(ref "SW1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "20")
+				(pinfunction "D4/GPIO4_20")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "12")
+			(name "GPIO19")
+			(class "Default")
+			(node
+				(ref "Q1")
+				(pin "1")
+				(pinfunction "G_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "25")
+				(pinfunction "D19/GPIO19_25")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "13")
+			(name "I2C_SCL")
+			(class "Default")
+			(node
+				(ref "R16")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "29")
+				(pinfunction "D22/GPIO22_29")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "5")
+				(pinfunction "SCL_5")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "14")
+			(name "I2C_SDA")
+			(class "Default")
+			(node
+				(ref "R15")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "26")
+				(pinfunction "D21/GPIO21_26")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "4")
+				(pinfunction "SDA_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "15")
+			(name "INA_ALERT")
+			(class "Default")
+			(node
+				(ref "R17")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "21")
+				(pinfunction "D16/GPIO16_21")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "3")
+				(pinfunction "ALERT_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "16")
+			(name "LED_ALARM")
+			(class "Default")
+			(node
+				(ref "R23")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "22")
+				(pinfunction "D17/GPIO17_22")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "17")
+			(name "LED_A_K")
+			(class "Default")
+			(node
+				(ref "D11")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R23")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "18")
+			(name "LED_STAT")
+			(class "Default")
+			(node
+				(ref "R24")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "24")
+				(pinfunction "D18/GPIO18_24")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "19")
+			(name "LED_S_K")
+			(class "Default")
+			(node
+				(ref "D12")
+				(pin "1")
+				(pinfunction "A_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R24")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "20")
+			(name "LOAD_POS_OUT")
+			(class "Default")
+			(node
+				(ref "J2")
+				(pin "1")
+				(pinfunction "LOAD+_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_SHUNT")
+				(pin "2")
+				(pinfunction "I-_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "21")
+			(name "MUX_COM")
+			(class "Default")
+			(node
+				(ref "U4")
+				(pin "3")
+				(pinfunction "COM_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U5")
+				(pin "3")
+				(pinfunction "IN+_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "22")
+			(name "MUX_OUT")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "2")
+				(pinfunction "VP/GPIO36_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U5")
+				(pin "1")
+				(pinfunction "VOUT_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U5")
+				(pin "4")
+				(pinfunction "IN-_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "23")
+			(name "MUX_S0")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "8")
+				(pinfunction "D25/GPIO25_8")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "11")
+				(pinfunction "S0_11")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "24")
+			(name "MUX_S1")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "9")
+				(pinfunction "D26/GPIO26_9")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "10")
+				(pinfunction "S1_10")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "25")
+			(name "MUX_S2")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "10")
+				(pinfunction "D27/GPIO27_10")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "9")
+				(pinfunction "S2_9")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "26")
+			(name "NTC0")
+			(class "Default")
+			(node
+				(ref "C9")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "1")
+				(pinfunction "NTC0_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R18")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "3")
+				(pinfunction "VN/GPIO39_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "27")
+			(name "NTC1")
+			(class "Default")
+			(node
+				(ref "C10")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "3")
+				(pinfunction "NTC1_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R19")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "4")
+				(pinfunction "D34/GPIO34_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "28")
+			(name "NTC2")
+			(class "Default")
+			(node
+				(ref "C11")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "5")
+				(pinfunction "NTC2_5")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R20")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "5")
+				(pinfunction "D35/GPIO35_5")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "29")
+			(name "NTC3")
+			(class "Default")
+			(node
+				(ref "C12")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J6")
+				(pin "7")
+				(pinfunction "NTC3_7")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R21")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "6")
+				(pinfunction "D32/GPIO32_6")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "30")
+			(name "PACK_POS_IN")
+			(class "Default")
+			(node
+				(ref "F7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J1")
+				(pin "1")
+				(pinfunction "PACK+_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_SHUNT")
+				(pin "1")
+				(pinfunction "I+_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "31")
+			(name "SHUNT_N_FILT")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R14")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "9")
+				(pinfunction "IN-_9")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "32")
+			(name "SHUNT_P_FILT")
+			(class "Default")
+			(node
+				(ref "C1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R13")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "10")
+				(pinfunction "IN+_10")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "33")
+			(name "SHUNT_SENSE_N")
+			(class "Default")
+			(node
+				(ref "R14")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_SHUNT")
+				(pin "4")
+				(pinfunction "S-_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "34")
+			(name "SHUNT_SENSE_P")
+			(class "Default")
+			(node
+				(ref "R13")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R_SHUNT")
+				(pin "3")
+				(pinfunction "S+_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "35")
+			(name "TAP_B1_FUSED")
+			(class "Default")
+			(node
+				(ref "D1")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F1")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "36")
+			(name "TAP_B1_RAW")
+			(class "Default")
+			(node
+				(ref "F1")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "2")
+				(pinfunction "B1_2")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "37")
+			(name "TAP_B2_FUSED")
+			(class "Default")
+			(node
+				(ref "D2")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F2")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "38")
+			(name "TAP_B2_RAW")
+			(class "Default")
+			(node
+				(ref "F2")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "3")
+				(pinfunction "B2_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "39")
+			(name "TAP_B3_FUSED")
+			(class "Default")
+			(node
+				(ref "D3")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F3")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "40")
+			(name "TAP_B3_RAW")
+			(class "Default")
+			(node
+				(ref "F3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "4")
+				(pinfunction "B3_4")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "41")
+			(name "TAP_B4_FUSED")
+			(class "Default")
+			(node
+				(ref "D4")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F4")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R7")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "42")
+			(name "TAP_B4_RAW")
+			(class "Default")
+			(node
+				(ref "F4")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "5")
+				(pinfunction "B4_5")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "43")
+			(name "TAP_B5_FUSED")
+			(class "Default")
+			(node
+				(ref "D5")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F5")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R9")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "44")
+			(name "TAP_B5_RAW")
+			(class "Default")
+			(node
+				(ref "F5")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "6")
+				(pinfunction "B5_6")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "45")
+			(name "TAP_B6_FUSED")
+			(class "Default")
+			(node
+				(ref "D6")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F6")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R11")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "46")
+			(name "TAP_B6_RAW")
+			(class "Default")
+			(node
+				(ref "F6")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J3")
+				(pin "7")
+				(pinfunction "B6_7")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "47")
+			(name "UART_RX")
+			(class "Default")
+			(node
+				(ref "J4")
+				(pin "3")
+				(pinfunction "TX_3")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "27")
+				(pinfunction "RX0_27")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "48")
+			(name "UART_TX")
+			(class "Default")
+			(node
+				(ref "J4")
+				(pin "4")
+				(pinfunction "RX_4")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "28")
+				(pinfunction "TX0_28")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "49")
+			(name "VBUS_SENSE")
+			(class "Default")
+			(node
+				(ref "D7")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "F7")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U3")
+				(pin "8")
+				(pinfunction "VBUS_8")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "50")
+			(name "VREF_2V048")
+			(class "Default")
+			(node
+				(ref "R22")
+				(pin "2")
+				(pinfunction "2_2")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U4")
+				(pin "4")
+				(pinfunction "CH7_4")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U6")
+				(pin "1")
+				(pinfunction "K_1")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "51")
+			(name "VUSB_5V")
+			(class "Default")
+			(node
+				(ref "C3")
+				(pin "1")
+				(pinfunction "1_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "J4")
+				(pin "1")
+				(pinfunction "VBUS_1")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U1")
+				(pin "15")
+				(pinfunction "VUSB_5V_15")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "U2")
+				(pin "3")
+				(pinfunction "VIN_3")
+				(pintype "bidirectional")
+			)
+		)
+		(net
+			(code "52")
+			(name "unconnected-(U1-D2{slash}GPIO2-Pad19)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "19")
+				(pinfunction "D2/GPIO2_19")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "53")
+			(name "unconnected-(U1-D5{slash}GPIO5-Pad23)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "23")
+				(pinfunction "D5/GPIO5_23")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "54")
+			(name "unconnected-(U1-D12{slash}GPIO12-Pad12)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "12")
+				(pinfunction "D12/GPIO12_12")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "55")
+			(name "unconnected-(U1-D13{slash}GPIO13-Pad13)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "13")
+				(pinfunction "D13/GPIO13_13")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "56")
+			(name "unconnected-(U1-D14{slash}GPIO14-Pad11)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "11")
+				(pinfunction "D14/GPIO14_11")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "57")
+			(name "unconnected-(U1-D15{slash}GPIO15-Pad18)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "18")
+				(pinfunction "D15/GPIO15_18")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "58")
+			(name "unconnected-(U1-D23{slash}GPIO23-Pad30)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "30")
+				(pinfunction "D23/GPIO23_30")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "59")
+			(name "unconnected-(U1-D33{slash}GPIO33-Pad7)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "7")
+				(pinfunction "D33/GPIO33_7")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "60")
+			(name "unconnected-(U1-EN-Pad1)")
+			(class "Default")
+			(node
+				(ref "U1")
+				(pin "1")
+				(pinfunction "EN_1")
+				(pintype "no_connect")
+			)
+		)
+		(net
+			(code "61")
+			(name "unconnected-(U6-NC-Pad3)")
+			(class "Default")
+			(node
+				(ref "U6")
+				(pin "3")
+				(pinfunction "NC_3")
+				(pintype "no_connect")
+			)
+		)
+	)
 )

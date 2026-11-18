@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "CellGuard")(type "KiCad")(uri "${KIPRJMOD}/footprints/CellGuard.pretty")(options "")(descr "CellGuard project footprints"))
+)
