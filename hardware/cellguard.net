@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "S:\\Projects\\Multi projects\\ENGINEERING-PORTFOLIO\\06-CELLGUARD\\hardware\\cellguard.kicad_sch")
-		(date "2026-11-18T18:51:51")
+		(date "2026-11-19T17:55:28")
 		(tool "Eeschema 10.0.8")
 		(sheet
 			(number "1")
@@ -2092,7 +2092,7 @@
 		(comp
 			(ref "J3")
 			(value "CELL_TAPS_1S-6S")
-			(footprint "CellGuard:PinHeader_1x07_P2.54mm")
+			(footprint "CellGuard:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical")
 			(fields
 				(field
 					(name "MPN") "B7B-XH-A")
@@ -2101,7 +2101,7 @@
 				(field
 					(name "Rating") "28V / 1A Sense")
 				(field
-					(name "Footprint") "CellGuard:PinHeader_1x07_P2.54mm")
+					(name "Footprint") "CellGuard:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -2235,7 +2235,7 @@
 		(comp
 			(ref "J6")
 			(value "NTC_ARRAY_4CH")
-			(footprint "CellGuard:PinHeader_1x08_H_P2.54mm")
+			(footprint "CellGuard:JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal")
 			(fields
 				(field
 					(name "MPN") "B8B-XH-A")
@@ -2244,7 +2244,7 @@
 				(field
 					(name "Rating") "3.3V NTC")
 				(field
-					(name "Footprint") "CellGuard:PinHeader_1x08_H_P2.54mm")
+					(name "Footprint") "CellGuard:JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal")
 				(field
 					(name "Datasheet")
 				)
@@ -5528,7 +5528,7 @@
 				(field
 					(name "Value") "CELL_TAPS_1S-6S")
 				(field
-					(name "Footprint") "CellGuard:PinHeader_1x07_P2.54mm")
+					(name "Footprint") "CellGuard:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -5623,7 +5623,7 @@
 				(field
 					(name "Value") "NTC_ARRAY_4CH")
 				(field
-					(name "Footprint") "CellGuard:PinHeader_1x08_H_P2.54mm")
+					(name "Footprint") "CellGuard:JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal")
 				(field
 					(name "Datasheet")
 				)

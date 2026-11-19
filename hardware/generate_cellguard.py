@@ -140,7 +140,7 @@ def build() -> None:
 
     sb.add_component(kt.SchComponent("J1", "PACK_POS_IN (XT60)", f"{LIB}:AMASS_XT60_Vertical", [kt.SchPin("1", "PACK+", "PACK_POS_IN", "left"), kt.SchPin("2", "GND", "GND", "right")], mpn="XT60PW-M", rating="60A / 28V"))
     sb.add_component(kt.SchComponent("J2", "LOAD_POS_OUT (XT60)", f"{LIB}:AMASS_XT60_Vertical", [kt.SchPin("1", "LOAD+", "LOAD_POS_OUT", "left"), kt.SchPin("2", "GND", "GND", "right")], mpn="XT60PW-F", rating="60A / 28V"))
-    sb.add_component(kt.SchComponent("J3", "CELL_TAPS_1S-6S", f"{LIB}:PinHeader_1x07_P2.54mm", [
+    sb.add_component(kt.SchComponent("J3", "CELL_TAPS_1S-6S", f"{LIB}:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical", [
         kt.SchPin("1", "B0_GND", "GND", "left"),
         kt.SchPin("2", "B1", "TAP_B1_RAW", "left"),
         kt.SchPin("3", "B2", "TAP_B2_RAW", "left"),
@@ -155,7 +155,7 @@ def build() -> None:
         kt.SchPin("3", "TX", "UART_RX", "right"),
         kt.SchPin("4", "RX", "UART_TX", "right"),
     ], mpn="USB-C-UART-4P", rating="5V / 1A"))
-    sb.add_component(kt.SchComponent("J6", "NTC_ARRAY_4CH", f"{LIB}:PinHeader_1x08_H_P2.54mm", [
+    sb.add_component(kt.SchComponent("J6", "NTC_ARRAY_4CH", f"{LIB}:JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal", [
         kt.SchPin("1", "NTC0", "NTC0", "left"), kt.SchPin("2", "GND0", "GND", "left"),
         kt.SchPin("3", "NTC1", "NTC1", "left"), kt.SchPin("4", "GND1", "GND", "left"),
         kt.SchPin("5", "NTC2", "NTC2", "right"), kt.SchPin("6", "GND2", "GND", "right"),
@@ -250,20 +250,8 @@ def build() -> None:
     fp_sot223 = kt.fp_sot223_tab("SOT-223-3_TabPin2")
     fp_shunt = kt.fp_kelvin_shunt_4wire()
     fp_xt = kt.fp_xt60("AMASS_XT60_Vertical")
-    fp_h8_h = kt.FootprintDef(
-        "PinHeader_1x08_H_P2.54mm",
-        "through_hole",
-        [
-            kt.PadDef(
-                str(i + 1), "thru_hole", "rect" if i == 0 else "circle",
-                round((i - 3.5) * 2.54, 3), 0.0, 1.7, 1.7, 1.0, ("*.Cu", "*.Mask")
-            )
-            for i in range(8)
-        ],
-        8 * 2.54,
-        2.54,
-    )
-    fp_h7 = kt.fp_pin_header_1xN("PinHeader_1x07_P2.54mm", 7)
+    fp_h8_h = kt.fp_jst_xh_1xN("JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal", 8, horizontal=True)
+    fp_h7 = kt.fp_jst_xh_1xN("JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical", 7)
     fp_h4 = kt.fp_pin_header_1xN("PinHeader_1x04_P2.54mm", 4)
     fp_h2 = kt.fp_pin_header_1xN("PinHeader_1x02_P2.54mm", 2)
     fp_0805 = kt.fp_smd_2pin("SMD_0805", 1.825, 1.025, 1.4, "Resistor_SMD.3dshapes/R_0805_2012Metric.step")
@@ -354,9 +342,20 @@ def build() -> None:
     overlaps = kt.check_courtyards(pb)
     assert not overlaps, f"Courtyard overlaps: {overlaps}"
 
-    # High-current 50A Kelvin main bus traces + clean B.Cu GND escape bus for BAT54S clamp array D8..D10
-    pb.add_track("PACK_POS_IN", 3.2, [pb.pad_abs_xy("J1", "1"), pb.pad_abs_xy("R_SHUNT", "1")], "F.Cu")
-    pb.add_track("LOAD_POS_OUT", 3.2, [pb.pad_abs_xy("R_SHUNT", "2"), pb.pad_abs_xy("J2", "1")], "F.Cu")
+    # High-current 3.5 mm dual-layer (F.Cu + B.Cu) Kelvin main bus bars + via stitching (50A rated)
+    j1_p1 = pb.pad_abs_xy("J1", "1")
+    rsh_p1 = pb.pad_abs_xy("R_SHUNT", "1")
+    rsh_p2 = pb.pad_abs_xy("R_SHUNT", "2")
+    j2_p1 = pb.pad_abs_xy("J2", "1")
+    pb.add_track("PACK_POS_IN", 3.5, [j1_p1, rsh_p1], "F.Cu")
+    pb.add_track("PACK_POS_IN", 3.5, [j1_p1, (17.2, 11.7)], "B.Cu")
+    pb.add_via("PACK_POS_IN", 17.2, 11.7, 1.1, 0.5)
+    pb.add_via("PACK_POS_IN", 14.5, 12.7, 1.1, 0.5)
+
+    pb.add_track("LOAD_POS_OUT", 3.5, [rsh_p2, j2_p1], "F.Cu")
+    pb.add_track("LOAD_POS_OUT", 3.5, [(31.0, 10.1), j2_p1], "B.Cu")
+    pb.add_via("LOAD_POS_OUT", 31.0, 10.1, 1.1, 0.5)
+    pb.add_via("LOAD_POS_OUT", 34.5, 9.2, 1.1, 0.5)
     for d_ref in ("D8", "D9", "D10"):
         dx, dy = pb.pad_abs_xy(d_ref, "1")
         pb.add_track("GND", 0.25, [(dx, dy), (39.2, dy)], "F.Cu")
@@ -365,9 +364,9 @@ def build() -> None:
 
     router = kt.AutoRouter2Layer(pb, grid_mm=0.5, clearance_mm=0.20)
     route_res = router.route_all(net_widths={
-        "VUSB_5V": 0.5,
-        "3V3": 0.4,
-        "AGND": 0.4,
+        "VUSB_5V": 0.6,
+        "3V3": 0.5,
+        "AGND": 0.5,
     })
     print("CellGuard AutoRouter failed list:", route_res["failed"])
     pb.write(HW_DIR)
@@ -379,7 +378,6 @@ def build() -> None:
     for src, dst in [
         ("cellguard-F_SilkS.gto", "cellguard-F_Silkscreen.gto"),
         ("cellguard-B_SilkS.gbo", "cellguard-B_Silkscreen.gbo"),
-        ("cellguard-PTH.drl", "cellguard.drl"),
     ]:
         if (g_dir / src).exists():
             shutil.copy2(g_dir / src, g_dir / dst)

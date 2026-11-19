@@ -1,22 +1,19 @@
-** CellGuard KiCad 8 DRC & Design Verification Report **
-Generated: 2026-11-18
-Board: cellguard.kicad_pcb (90.00 mm x 62.00 mm, 2-Layer FR4, 2 oz copper)
+** CellGuard KiCad 10.0.8 ERC & DRC Design Verification Report **
+Updated: 2026-11-19 (Phase 3 Remediated)
+Board: cellguard.kicad_pcb (110.0 mm x 82.0 mm, 2-Layer FR4, ENIG)
 
-Design Rules Checked:
-  - Minimum track clearance: 0.20 mm (HighCurrent >= 0.40 mm) -> PASS
-  - Minimum track width: 0.25 mm (Power paths 4.00 mm F.Cu + B.Cu) -> PASS
-  - Minimum via drill / annular ring: 0.35 mm / 0.175 mm -> PASS
-  - Edge.Cuts closed outline & M3 mounting hole clearance (>= 3.0 mm) -> PASS
-  - Kelvin 4-Wire Shunt sense routing (SHUNT_SENSE_P / SHUNT_SENSE_N):
-      Symmetric 0.25 mm inner-tab routing verified -> PASS
-  - Sense-tap PPTC polyfuse (F1..F7) + SMAJ28A TVS (D1..D7) placement:
-      Adjacent to J3 JST-XH entry -> PASS
-  - Safety Invariant Verification:
-      No charge converter, no balance bleed FETs, no high-current disconnect FETs -> PASS
+Design Rules Checked (KiCad CLI 10.0.8 --schematic-parity --severity-all):
+  - ERC Violations: 0 (0 errors, 0 warnings)
+  - DRC Violations: 0
+  - Unconnected Items: 0
+  - Schematic-to-PCB Parity Issues: 0
+  - High-Current Buses (PACK_POS_IN / LOAD_POS_OUT): 3.5 mm dual-layer F.Cu + B.Cu across CSS4J-4026 Kelvin shunt (specify 2 oz outer Cu at fab checkout for 50 A continuous rating)
+  - B.Cu GND Plane: 1 contiguous polygon (0 isolated copper islands)
+  - Connectors J3 (Balance) / J6 (Thermistors): Keyed 2.50 mm JST-XH
+  - Drill Files: cellguard-PTH.drl + cellguard-NPTH.drl (stale duplicate cellguard.drl removed)
+  - Monitor-Only Safety Invariant: Zero charge converter / bleed / series disconnect FETs
 
 Summary:
-  Total Components: 70
-  Total Nets: 50
-  DRC Errors: 0
-  Unconnected Items: 0
-  Status: DRC VERIFIED CLEAN
+  Total Footprints: 75
+  Routed Nets: 51 (5,236 segments)
+  Status: ERC/DRC/PARITY VERIFIED CLEAN (0 / 0 / 0)

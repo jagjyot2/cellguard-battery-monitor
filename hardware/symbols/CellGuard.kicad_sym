@@ -248,7 +248,7 @@
       (duplicate_pin_numbers_are_jumpers no)
       (property "Reference" "J" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "CELL_TAPS_1S-6S" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "CellGuard:PinHeader_1x07_P2.54mm" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
+      (property "Footprint" "CellGuard:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (property "Description" "" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (symbol "SYM_J3_CELL_TAPS_1S_6S_0_1"
@@ -295,7 +295,7 @@
       (duplicate_pin_numbers_are_jumpers no)
       (property "Reference" "J" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "NTC_ARRAY_4CH" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "CellGuard:PinHeader_1x08_H_P2.54mm" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
+      (property "Footprint" "CellGuard:JST_XH_B8B-XH-A_1x08_P2.50mm_Horizontal" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (property "Datasheet" "" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (property "Description" "" (at 0 0 0) (effects (font (size 1.0 1.0)) hide))
       (symbol "SYM_J6_NTC_ARRAY_4CH_0_1"
